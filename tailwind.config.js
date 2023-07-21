@@ -34,7 +34,6 @@ module.exports = {
       },
       fontFamily: {
         coop: 'CoopBold',
-        helvetica: 'Helvetica Neue',
       },
       maxWidth: {
         200: '200px',
