@@ -8,12 +8,9 @@ if (!customElements.get('product-form')) {
         this.form = this.querySelector('form');
         this.form.querySelector('[name=id]').disabled = false;
         this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
-        this.cart =
-          document.querySelector('cart-notification') ||
-          document.querySelector('cart-drawer');
+        this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
         this.submitButton = this.querySelector('[type="submit"]');
-        if (document.querySelector('cart-drawer'))
-          this.submitButton.setAttribute('aria-haspopup', 'dialog');
+        if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
 
         this.hideErrors = this.dataset.hideErrors === 'true';
       }
@@ -26,9 +23,7 @@ if (!customElements.get('product-form')) {
 
         this.submitButton.setAttribute('aria-disabled', true);
         this.submitButton.classList.add('loading');
-        this.querySelector('.loading-overlay__spinner').classList.remove(
-          'hidden',
-        );
+        this.querySelector('.loading-overlay__spinner').classList.remove('hidden');
 
         const config = fetchConfig('javascript');
         config.headers['X-Requested-With'] = 'XMLHttpRequest';
@@ -38,7 +33,7 @@ if (!customElements.get('product-form')) {
         if (this.cart) {
           formData.append(
             'sections',
-            this.cart.getSectionsToRender().map((section) => section.id),
+            this.cart.getSectionsToRender().map((section) => section.id)
           );
           formData.append('sections_url', window.location.pathname);
           this.cart.setActiveElement(document.activeElement);
@@ -57,8 +52,7 @@ if (!customElements.get('product-form')) {
               });
               this.handleErrorMessage(response.description);
 
-              const soldOutMessage =
-                this.submitButton.querySelector('.sold-out-message');
+              const soldOutMessage = this.submitButton.querySelector('.sold-out-message');
               if (!soldOutMessage) return;
               this.submitButton.setAttribute('aria-disabled', true);
               this.submitButton.querySelector('span').classList.add('hidden');
@@ -85,7 +79,7 @@ if (!customElements.get('product-form')) {
                     this.cart.renderContents(response);
                   });
                 },
-                { once: true },
+                { once: true }
               );
               quickAddModal.hide(true);
             } else {
@@ -97,25 +91,17 @@ if (!customElements.get('product-form')) {
           })
           .finally(() => {
             this.submitButton.classList.remove('loading');
-            if (this.cart && this.cart.classList.contains('is-empty'))
-              this.cart.classList.remove('is-empty');
+            if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
             if (!this.error) this.submitButton.removeAttribute('aria-disabled');
-            this.querySelector('.loading-overlay__spinner').classList.add(
-              'hidden',
-            );
+            this.querySelector('.loading-overlay__spinner').classList.add('hidden');
           });
       }
 
       handleErrorMessage(errorMessage = false) {
         this.errorMessageWrapper =
-          this.errorMessageWrapper ||
-          this.querySelector('.product-form__error-message-wrapper');
+          this.errorMessageWrapper || this.querySelector('.product-form__error-message-wrapper');
         if (!this.errorMessageWrapper) return;
-        this.errorMessage =
-          this.errorMessage ||
-          this.errorMessageWrapper.querySelector(
-            '.product-form__error-message',
-          );
+        this.errorMessage = this.errorMessage || this.errorMessageWrapper.querySelector('.product-form__error-message');
 
         this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
 
@@ -123,6 +109,6 @@ if (!customElements.get('product-form')) {
           this.errorMessage.textContent = errorMessage;
         }
       }
-    },
+    }
   );
 }

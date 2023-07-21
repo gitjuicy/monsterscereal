@@ -7,24 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "login": "shopify theme dev --store https://monsters-cereals.myshopify.com/",
     "prepare": "husky install",
-    "lint:prettier": "npx prettier . ",
+    "lint:prettier": "npx prettier .",
     "lint:liquid": "shopify theme check",
-    "lint:fix": "npx prettier  . --write && shopify theme check -a"
+    "lint:fix:prettier": "npx prettier . --write",
+    "lint:fix:liquid": "shopify theme check -a",
+    "lint:fix": "concurrently \"yarn run lint:fix:prettier\" \"yarn run lint:fix:liquid\""
   },
-  "author": "Trellis",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.4",
+    "concurrently": "^8.2.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.3",
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.24"
   },
-  "dependencies": {
-    "@trelliscommerce/prettier-config": "^1.0.0"
-  },
-  "prettier": "@trelliscommerce/prettier-config",
   "lint-staged": {
     "*.{js,css}": "prettier --write"
   }
