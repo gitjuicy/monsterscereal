@@ -6,18 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "login": "shopify theme dev --store https://monsters-cereals.myshopify.com/",
-    "prepare": "husky install"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base.git"
+    "prepare": "husky install",
+    "lint:prettier": "npx prettier . ",
+    "lint:liquid": "shopify theme check",
+    "lint:fix": "npx prettier  . --write && shopify theme check -a"
   },
   "author": "Trellis",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base/issues"
-  },
-  "homepage": "https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.4",
     "husky": "^7.0.4",
