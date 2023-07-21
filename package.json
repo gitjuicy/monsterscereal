@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "login": "shopify theme dev --store https://monsters-cereals.myshopify.com/",
     "prepare": "husky install",
+    "build:dev": "npx tailwindcss -i ./assets/app-tailwind.css -o ./assets/app.css --watch",
+    "login": "shopify theme dev --store https://monsters-cereals.myshopify.com/",
+    "dev": "concurrently \"yarn run login\" \"yarn run build:dev\"",
     "lint:prettier": "npx prettier .",
     "lint:liquid": "shopify theme check",
     "lint:fix:prettier": "npx prettier . --write",
@@ -24,5 +26,6 @@
   },
   "lint-staged": {
     "*.{js,css}": "prettier --write"
-  }
+  },
+  "dependencies": {}
 }
