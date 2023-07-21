@@ -1,10 +1,38 @@
 {
   "sections": {
-    "carmella-hero": {
-
+    "carmella_hero": {
+      "type": "carmella-hero",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "CARMELLA CREEPER IS BACK FROM THE DEAD"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "The Monsters are back and this time they brought a new friend, Carmella Creeper! Pick up a box of her caramel apple cereal &amp; learn all about Carmella!"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "MEET CARMELLA",
+            "button_link_1": "/products/carmella-creeper"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
-    "carmella-hero"
+    "carmella_hero"
   ]
 }
