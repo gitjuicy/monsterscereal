@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "login": "shopify theme dev --store https://monsters-cereals.myshopify.com/",
     "prepare": "husky install"
   },
   "repository": {
