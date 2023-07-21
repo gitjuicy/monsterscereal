@@ -23,9 +23,16 @@
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
-      "settings": {}
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+      }
     }
   },
-  "order": ["carmella_hero"]
+  "order": [
+    "carmella_hero"
+  ]
 }

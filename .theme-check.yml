@@ -2,3 +2,6 @@ MatchingTranslations:
   enabled: false
 TemplateLength:
   enabled: false
+LiquidTag:
+  enabled: false
+  
