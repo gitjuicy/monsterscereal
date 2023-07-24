@@ -1194,3 +1194,21 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+/**
+ * Sets background color based on product
+ * TODO: Find a liquid way to do this, which would set it before render
+ */
+window.addEventListener("load", function() {
+  let productWrapper = document.querySelector('.product');
+  let productHandle = window.location.pathname.split("/").pop();
+  if (productHandle == 'boo-berry') {
+    productWrapper.classList.add('bg-gradient-to-b','from-blue','to-black');
+  } else if (productHandle == 'carmella-creeper') {
+    productWrapper.classList.add('bg-gradient-to-b','from-green','to-black');
+  } else if (productHandle == 'count-chocula') {
+    productWrapper.classList.add('bg-gradient-to-b','from-brown','to-black');
+  } else {
+    productWrapper.classList.add('bg-gradient-to-b','from-pink','to-black');
+  }
+});

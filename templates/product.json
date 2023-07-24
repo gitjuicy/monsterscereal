@@ -1,4 +1,5 @@
 {
+  "wrapper": "section.product",
   "sections": {
     "main": {
       "type": "main-product",

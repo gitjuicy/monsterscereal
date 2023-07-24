@@ -269,7 +269,7 @@
     </script>
   </head>
 
-  <body class="bg-purple{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="mx-auto flex flex-col min-h-screen antialiased max-w-[1500px] bg-purple{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
