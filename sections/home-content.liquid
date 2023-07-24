@@ -1,0 +1,119 @@
+{%- liquid
+  assign half_width = '50vw'
+  assign full_width = '100vw'
+  assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+-%}
+
+<div class="pt-0 flex flex-col justify-center text-center bg-[url('~/src/img/text-section-bg.jpg')] bg-center bg-fixed bg-cover bg-no-repeat">
+  {%- if section.settings.image != blank -%}
+    <div>
+      {%- liquid
+        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+        if section.settings.image_2 != blank
+          assign image_class = 'banner__media-image-half'
+        endif
+        if section.settings.image_2 != blank and section.settings.stack_images_on_mobile
+          assign sizes = stacked_sizes
+        elsif section.settings.image_2 != blank
+          assign sizes = half_width
+        else
+          assign sizes = full_width
+        endif
+      -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          loading: 'lazy',
+          width: section.settings.image.width,
+          height: image_height,
+          class: image_class,
+          sizes: sizes,
+          widths: widths
+      }}
+    </div>
+  {%- endif -%}
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'heading' -%}
+        <h2 class="{% if block.settings.grid_heading == false %}pt{% else %}pb{% endif %}-20 font-coop text-white text-5xl">
+          {{ block.settings.heading }}
+        </h2>
+      {%- when 'text' -%}
+        <p class="pt-3 pb-20 font-helvetica font-bold text-lg text-white">
+          {{ block.settings.text }}
+          <br aria-hidden="true">
+          <span class="inline-block mx-auto w-4/5 md:w-3/5">
+            {{ block.settings.text_2 }}
+          </span>
+        </p>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Home Content",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-banner.settings.image.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.image-banner.blocks.heading.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "WE'RE BACK",
+          "label": "t:sections.image-banner.blocks.heading.settings.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "grid_heading",
+          "default": false,
+          "label": "Home Grid Heading"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.image-banner.blocks.text.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Monster Mash is BACK... and this time, it's the remix!",
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_2",
+          "default": "Pick up a box of the new Monster Mash Remix featuring the newest monster in the crew, Carmilla Creeper!",
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.image-banner.preset.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
