@@ -4,6 +4,7 @@
     "main": {
       "type": "main-product",
       "settings": {
+        "secondary_productImage": "shopify:\/\/shop_images\/boo-berry-bowl.png"
       }
     },
     "related-products": {
