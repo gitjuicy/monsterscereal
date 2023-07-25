@@ -10,7 +10,7 @@
     {% endcapture %}
 
     {% capture linkStyle %}
-      font-helvetica inline-block bg-{{ color }} hover:bg-{{ color }}-light text-white font-bold text-center w-[208px] xl:w-[288px] py-2 rounded-full
+      font-helvetica inline-block bg-{{ color }} hover:bg-{{ color }}-light text-white font-bold text-center w-[208px] xl:w-[288px] py-[8px] rounded-full
     {% endcapture %}
 
     <div class="{{ cardStyle }}">
@@ -38,13 +38,13 @@
           | image_tag: loading: 'lazy', class: 'mx-auto', alt: product.metafields.custom.package.alt
         }}
       </div>
-      <div class="py-4">
+      <div class="py-[16px]">
         <a
           role="link"
           href="{{ product.url }}"
           class="{{ linkStyle }}"
         >
-          Meet {{ product.title }}
+          MEET {{ product.title | upcase }}
         </a>
       </div>
     </div>
