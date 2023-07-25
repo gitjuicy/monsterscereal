@@ -1,8 +1,5 @@
-{% comment %}
-  Line 13: Not the best fix for restarting the array...
-  but forloop.last is not working.. TODO
-{% endcomment %}
 {% liquid
+  assign background_color = product.metafields.custom.background_color.value
   assign cereal_collection = collections.cereal.products
 
   for i in (0..cereal_collection.size)
@@ -10,7 +7,7 @@
       assign previous_index = forloop.index0 | minus: 1
       assign previous_cereal = cereal_collection[previous_index].url
       assign next_index = forloop.index0 | plus: 1
-      if product.handle == 'boo-berry'
+      if forloop.index == cereal_collection.size
         assign next_cereal = cereal_collection[0].url
       else
         assign next_cereal = cereal_collection[next_index].url
@@ -27,8 +24,9 @@
 
 <section
   id="MainProduct-{{ section.id }}"
-  class="text-white pb-20"
+  class="text-white pb-20 main-product"
   data-section="{{ section.id }}"
+  style="background: linear-gradient(to bottom, {{ background_color[0] }}, {{ background_color[1] }});"
 >
   <div class="flex flex-row flex-nowrap items-center justify-between gap-5 max-w-1000 my-0 mx-auto px-10">
     {% render 'arrow-left', previous_cereal: previous_cereal %}
@@ -43,7 +41,10 @@
       <h2 class="uppercase text-white font-coop text-6xl">Who is {{ product.title }}?</h2>
       {{ product.description }}
       {% if section.settings.secondary_productImage %}
-        <aside>{{ section.settings.secondary_productImage | image_url: width: 688 | image_tag }}</aside>
+        <aside>{{ section.settings.secondary_productImage | image_url: width: 650 | image_tag }}</aside>
+      {% endif %}
+      {% if section.settings.footer_image %}
+        {{ section.settings.footer_image | image_url: width: 1400 | image_tag }}
       {% endif %}
     </div>
   </div>
@@ -60,6 +61,11 @@
       "type": "image_picker",
       "id": "secondary_productImage",
       "label": "Secondary Product image"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_image",
+      "label": "Footer Product Image"
     }
   ]
 }

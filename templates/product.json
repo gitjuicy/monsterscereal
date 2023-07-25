@@ -1,5 +1,5 @@
 {
-  "wrapper": "section.product",
+  "wrapper": "div.product",
   "sections": {
     "main": {
       "type": "main-product",
