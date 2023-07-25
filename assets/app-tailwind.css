@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-blue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 137 202 / var(--tw-bg-opacity));
+}
+.bg-brown {
+  --tw-bg-opacity: 1;
+  background-color: rgb(160 77 36 / var(--tw-bg-opacity));
+}
+.bg-green {
+  --tw-bg-opacity: 1;
+  background-color: rgb(165 205 57 / var(--tw-bg-opacity));
+}
+.bg-pink {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 9 115 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-pink-light:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 63 140 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-light:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(69 163 230 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-brown-light:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(190 102 59 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-green-light:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(194 233 86 / var(--tw-bg-opacity));
+}
