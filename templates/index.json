@@ -82,10 +82,36 @@
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
+    },
+    "home_grid": {
+      "type": "home-grid",
+      "settings": {
+      }
+    },
+    "home_image": {
+      "type": "home-image",
+      "blocks": {
+      },
+      "block_order": [
+      ],
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
     }
   },
   "order": [
     "home_hero",
-    "home_content"
+    "home_content",
+    "home_grid",
+    "home_image"
   ]
 }
