@@ -1,24 +1,19 @@
 {
-  "name": "dawn-tailwind-starter",
-  "version": "1.0.0",
-  "description": "[![Build status](https://github.com/shopify/dawn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Shopify/dawn/actions/workflows/ci.yml?query=branch%3Amain) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=informational)](/.github/CONTRIBUTING.md)",
-  "main": "index.js",
+  "name": "monsterscereal.com",
+  "version": "0.1",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install",
     "build:dev": "npx tailwindcss -i ./assets/app-tailwind.css -o ./assets/app.css --watch",
     "login": "shopify theme dev --store https://monsters-cereals.myshopify.com/",
-    "dev": "concurrently \"yarn run login\" \"yarn run build:dev\"",
+    "dev": "yarn run login & yarn run build:dev",
     "lint:prettier": "npx prettier .",
     "lint:liquid": "shopify theme check",
     "lint:fix:prettier": "npx prettier . --write",
     "lint:fix:liquid": "shopify theme check -a",
-    "lint:fix": "concurrently \"yarn run lint:fix:prettier\" \"yarn run lint:fix:liquid\""
+    "lint:fix": "yarn run lint:fix:prettier && yarn run lint:fix:liquid"
   },
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.4",
-    "concurrently": "^8.2.0",
     "husky": "^7.0.4",
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
