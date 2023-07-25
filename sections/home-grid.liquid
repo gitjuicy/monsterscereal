@@ -6,7 +6,15 @@
   {%- for product in products -%}
     {% assign color = product.metafields.theme.details.value.style.color %}
     {% capture cardStyle %}
-      relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-{{ color }} to-black
+      {% if product.handle == 'boo-berry' %}
+        relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-blue to-black
+      {% elsif product.handle == 'count-chocula' %}
+        relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-brown to-black
+      {% elsif product.handle == 'carmella-creeper' %}
+        relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-green to-black
+      {% elsif product.handle == 'franken-berry' %}
+        relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-pink to-black
+      {% endif %}
     {% endcapture %}
 
     {% capture linkStyle %}
