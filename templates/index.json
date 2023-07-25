@@ -12,14 +12,14 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "The Monsters are back and this time they brought a new friend, Carmella Creeper! Pick up a box of her caramel apple cereal &amp; learn all about Carmella!"
+            "text": "The Monsters are back and this time they brought a new friend, Carmella Creeper! Pick up a box of her caramel apple cereal & learn all about Carmella!"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
             "button_label_1": "MEET CARMELLA",
-            "button_link_1": "/products/carmella-creeper"
+            "button_link_1": "shopify:\/\/products\/carmella-creeper"
           }
         }
       },
@@ -29,16 +29,7 @@
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "image": "shopify:\/\/shop_images\/home-hero.png"
       }
     },
     "home_content": {
@@ -47,14 +38,8 @@
         "heading_1": {
           "type": "heading",
           "settings": {
-            "heading": "WE'RE BACK"
-          }
-        },
-        "heading_2": {
-          "type": "heading",
-          "settings": {
-            "heading": "MEET THE MONSTERS",
-            "grid_heading": true
+            "heading": "WE'RE BACK",
+            "grid_heading": false
           }
         },
         "text": {
@@ -62,6 +47,13 @@
           "settings": {
             "text": "Monster Mash is BACK... and this time, it's the remix!",
             "text_2": "Pick up a box of the new Monster Mash Remix featuring the newest monster in the crew, Carmilla Creeper!"
+          }
+        },
+        "heading_2": {
+          "type": "heading",
+          "settings": {
+            "heading": "MEET THE MONSTERS",
+            "grid_heading": true
           }
         }
       },
@@ -71,16 +63,7 @@
         "heading_2"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "image": "shopify:\/\/shop_images\/text-section-bg.jpg"
       }
     },
     "home_grid": {
@@ -90,21 +73,8 @@
     },
     "home_image": {
       "type": "home-image",
-      "blocks": {
-      },
-      "block_order": [
-      ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "image": "shopify:\/\/shop_images\/monster-mash-group.png"
       }
     }
   },
