@@ -240,6 +240,53 @@
         font-family: "CoopBold";
         src: url("{{ 'coopbold-regular.otf' | asset_url }}") format('opentype');
       }
+      @font-face {
+        font-family: 'Helvetica Neue';
+        font-weight: 400;
+        font-style: normal;
+        src: url("{{ 'helvetica-neue-regular.otf' | asset_url }}")
+          format('opentype');
+      }
+
+      @font-face {
+        font-family: 'Helvetica Neue';
+        font-weight: 67;
+        font-style: normal;
+        src: url("{{ 'helvetica-neue-67-medium-condensed.otf' | asset_url }}")
+          format('opentype');
+      }
+
+      @font-face {
+        font-family: 'Helvetica Neue';
+        font-weight: 67;
+        font-style: italic;
+        src: url("{{ 'helvetica-neue-67-medium-condensed-oblique.otf' | asset_url }}")
+          format('opentype');
+      }
+
+      @font-face {
+        font-family: 'Helvetica Neue';
+        font-weight: 97;
+        font-style: normal;
+        src: url("{{ 'helvetica-neue-97-black-condensed.otf' | asset_url }}")
+          format('opentype');
+      }
+
+      @font-face {
+        font-family: 'Helvetica Neue';
+        font-weight: 97;
+        font-style: italic;
+        src: url("{{ 'helvetica-neue-97-black-condensed-oblique.otf' | asset_url }}")
+          format('opentype');
+      }
+
+      @font-face {
+        font-family: 'Helvetica Neue';
+        font-weight: bold;
+        font-style: normal;
+        src: url("{{ 'helvetica-neue-condensed-bold.ttf' | asset_url }}")
+          format('truetype');
+      }
     {% endstyle %}
 
     {{ 'app.css' | asset_url | stylesheet_tag }}

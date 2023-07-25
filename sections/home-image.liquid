@@ -1,0 +1,35 @@
+{%- liquid
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+-%}
+
+<div class="pt-20 flex flex-col w-full bg-gradient-to-b from-purple-900 via-black to-green">
+  {%- if section.settings.image != blank -%}
+    {{
+      section.settings.image
+      | image_url: width: 3840
+      | image_tag: loading: 'lazy', width: section.settings.image.width, widths: widths
+    }}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Home Image",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-banner.settings.image.label"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "t:sections.image-banner.preset.name",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

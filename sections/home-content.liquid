@@ -1,0 +1,96 @@
+{%- capture sectionStyle -%}
+    pt-0 flex flex-col justify-center text-center bg-center bg-fixed bg-cover bg-no-repeat
+  {%- endcapture -%}
+
+{% style %}
+  {%- if section.settings.image != blank -%}
+    .home-content {
+      background-image: url({{ section.settings.image | image_url }});
+    }
+  {%- endif -%}
+{% endstyle %}
+
+<div class="home-content {{ sectionStyle }}">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'heading' -%}
+        <h2 class="{% if block.settings.grid_heading == false %}pt-[80px]{% else %}pb-[80px]{% endif %} font-coop text-white text-[48px] leading-none">
+          {{ block.settings.heading }}
+        </h2>
+      {%- when 'text' -%}
+        <p class="pt-[12px] pb-[80px] font-helvetica font-bold text-[18px] leading-[28px] text-white">
+          {{ block.settings.text }}
+          <br aria-hidden="true">
+          <span class="inline-block mx-auto w-4/5 md:w-3/5">
+            {{ block.settings.text_2 }}
+          </span>
+        </p>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Home Content",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-banner.settings.image.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.image-banner.blocks.heading.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "WE'RE BACK",
+          "label": "t:sections.image-banner.blocks.heading.settings.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "grid_heading",
+          "default": false,
+          "label": "Home Grid Heading"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.image-banner.blocks.text.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Monster Mash is BACK... and this time, it's the remix!",
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_2",
+          "default": "Pick up a box of the new Monster Mash Remix featuring the newest monster in the crew, Carmilla Creeper!",
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.image-banner.preset.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,71 @@
+{% liquid
+  assign products = collections.cereal.products
+%}
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-center items-stretch w-full h-full">
+  {%- for product in products -%}
+    {% assign color = product.metafields.theme.details.value.style.color %}
+    {% capture cardStyle %}
+      {% if product.handle == 'boo-berry' %}
+        relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-blue to-black
+      {% elsif product.handle == 'count-chocula' %}
+        relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-brown to-black
+      {% elsif product.handle == 'carmella-creeper' %}
+        relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-green to-black
+      {% elsif product.handle == 'franken-berry' %}
+        relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-pink to-black
+      {% endif %}
+    {% endcapture %}
+
+    {% capture linkStyle %}
+      font-helvetica inline-block bg-{{ color }} hover:bg-{{ color }}-light text-white font-bold text-center w-[208px] xl:w-[288px] py-[8px] rounded-full
+    {% endcapture %}
+
+    <div class="{{ cardStyle }}">
+      {% if product.handle == 'carmella-creeper' %}
+        {% comment %}theme-check-disable ImgWidthAndHeight{% endcomment %}
+        <img
+          class="w-4/5 absolute top-0 left-0 -translate-y-1/2"
+          src="{{ 'home-grid-introducing-sticker.png' | file_url }}"
+          loading="lazy"
+        >
+        {% comment %}theme-check-enable ImgWidthAndHeight{% endcomment %}
+      {% endif %}
+      <div class="relative w-4/5 mx-auto">
+        {{
+          product.metafields.custom.logo
+          | image_url: width: 800
+          | image_tag:
+            loading: 'lazy',
+            class: 'w-[200px] mx-auto pb-5 pt-10 h-[176px]',
+            alt: product.metafields.custom.package.alt
+        }}
+        {{
+          product.metafields.custom.package
+          | image_url: width: 800
+          | image_tag: loading: 'lazy', class: 'mx-auto', alt: product.metafields.custom.package.alt
+        }}
+      </div>
+      <div class="py-[16px]">
+        <a
+          role="link"
+          href="{{ product.url }}"
+          class="{{ linkStyle }}"
+        >
+          MEET {{ product.title | upcase }}
+        </a>
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Home Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [],
+  "presets": []
+}
+{% endschema %}

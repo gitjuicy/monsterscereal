@@ -1,7 +1,7 @@
 {
   "sections": {
-    "carmella_hero": {
-      "type": "carmella-hero",
+    "home_hero": {
+      "type": "home-hero",
       "blocks": {
         "heading": {
           "type": "heading",
@@ -12,14 +12,14 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "The Monsters are back and this time they brought a new friend, Carmella Creeper! Pick up a box of her caramel apple cereal &amp; learn all about Carmella!"
+            "text": "The Monsters are back and this time they brought a new friend, Carmella Creeper! Pick up a box of her caramel apple cereal & learn all about Carmella!"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
             "button_label_1": "MEET CARMELLA",
-            "button_link_1": "/products/carmella-creeper"
+            "button_link_1": "shopify:\/\/products\/carmella-creeper"
           }
         }
       },
@@ -29,10 +29,59 @@
         "button"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/home-hero.png"
+      }
+    },
+    "home_content": {
+      "type": "home-content",
+      "blocks": {
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "heading": "WE'RE BACK",
+            "grid_heading": false
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Monster Mash is BACK... and this time, it's the remix!",
+            "text_2": "Pick up a box of the new Monster Mash Remix featuring the newest monster in the crew, Carmilla Creeper!"
+          }
+        },
+        "heading_2": {
+          "type": "heading",
+          "settings": {
+            "heading": "MEET THE MONSTERS",
+            "grid_heading": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "text",
+        "heading_2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/text-section-bg.jpg"
+      }
+    },
+    "home_grid": {
+      "type": "home-grid",
+      "settings": {
+      }
+    },
+    "home_image": {
+      "type": "home-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/monster-mash-group.png"
       }
     }
   },
   "order": [
-    "carmella_hero"
+    "home_hero",
+    "home_content",
+    "home_grid",
+    "home_image"
   ]
 }
