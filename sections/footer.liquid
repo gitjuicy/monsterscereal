@@ -1,24 +1,44 @@
-<footer class="bg-gradient-to-b bg-purple">
+<div class="bg-gradient-to-b from-purple font-bold to-black font-helvetica text-white grid md:grid-cols-3 justify-items-center md:justify-around w-full gap-5 md:gap-0 text-center md:text-left px-8 py-8">
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'link_list' %}
-        <h2>{{ block.settings.menu_heading }}</h2>
-        <ul role="list">
-          {% for menu in block.settings.menu %}
-            <li role="listitem">
-              <a href="{{ menu.url }}">{{ menu.name }}</a>
-            </li>
-          {% endfor %}
-        </ul>
+        <div>
+          <h2 class="text-white font-coop">{{ block.settings.menu_heading }}</h2>
+          <ul role="list">
+            {% for menu in block.settings.menu.links %}
+              <li class="uppercase" role="listitem">
+                <a href="{{ menu.url }}">
+                  {{ menu.title }}
+                  {% if block.settings.menu.handle == 'legal-privacy' and menu.title != 'Customize Cookie Settings' %}
+                    {% render 'new-window' %}
+                  {% endif %}
+                  {%- if menu.title == 'Your Privacy Choices' -%}
+                    <img
+                      src="{{ 'privacy-options-icon.png' | asset_url }}"
+                      alt="California Consumer Privacy Act Opt-Out"
+                      class="privacy-options-icon inline pb-2"
+                      width="30"
+                      height="3-"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       {% when 'image_picker' %}
-        {{ block.settings.footer_image | image_url: width: 400 | image_tag }}
+        <div>
+          {{ block.settings.footer_image | image_url: width: 150 | image_tag }}
+        </div>
     {% endcase %}
   {% endfor %}
-</footer>
+</div>
 
 {% schema %}
 {
   "name": "Footer",
+  "tag": "footer",
   "blocks": [
     {
       "type": "link_list",
