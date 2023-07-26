@@ -127,6 +127,22 @@
           "color_scheme": "background-1"
         }
       },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "header": {
+            "type": "link_list",
+            "settings": {
+              "menu": "header-menu"
+            }
+          }
+        },
+        "block_order": [
+          "header"
+        ],
+        "settings": {
+        }
+      },
       "footer": {
         "type": "footer",
         "blocks": {
