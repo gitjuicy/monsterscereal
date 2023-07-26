@@ -11,9 +11,7 @@
           {% endfor %}
         </ul>
       {% when 'image_picker' %}
-        {% if block.settings.footer_image.enabled %}
-          {{ block.settings.footer_image | image_url: width: 400 | image_tag }}
-        {% endif %}
+        {{ block.settings.footer_image | image_url: width: 400 | image_tag }}
     {% endcase %}
   {% endfor %}
 </footer>
@@ -24,7 +22,6 @@
   "blocks": [
     {
       "type": "link_list",
-      "id": "footer_menu",
       "name": "Footer menu",
       "settings": [
         {
@@ -46,18 +43,9 @@
       "settings": [
         {
           "id": "footer_image",
-          "type": "image",
+          "type": "image_picker",
           "label": "Image",
-          "default": "",
-          "info": "Select an image for the footer",
-          "required": false
-        },
-        {
-          "id": "enabled",
-          "type": "boolean",
-          "label": "Enabled",
-          "default": false,
-          "info": "Enable or disable the footer image"
+          "info": "Select an image for the footer"
         }
       ]
     }
