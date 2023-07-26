@@ -1,8 +1,8 @@
 {
   "current": {
-    "logo": "shopify://shop_images/monsters-cereal-logo.jpg",
+    "logo": "shopify:\/\/shop_images\/monsters-cereal-logo.jpg",
     "logo_width": 90,
-    "favicon": "shopify://shop_images/favicon-32x32.png",
+    "favicon": "shopify:\/\/shop_images\/favicon-32x32.png",
     "type_header_font": "cooper_bt_n5",
     "heading_scale": 100,
     "type_body_font": "helvetica_n4",
@@ -125,6 +125,38 @@
         "type": "main-password-footer",
         "settings": {
           "color_scheme": "background-1"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "69ea7db2-9062-477a-8391-d473152231d1": {
+            "type": "image_picker",
+            "settings": {
+              "footer_image": "shopify:\/\/shop_images\/monsters-cereal-logo.jpg"
+            }
+          },
+          "f05e040a-e65d-4892-9a7c-20ceacb5234a": {
+            "type": "link_list",
+            "settings": {
+              "menu_heading": "Meet the Monsters",
+              "menu": "footer"
+            }
+          },
+          "c5f16688-7ab5-4456-9cc6-5815360389ac": {
+            "type": "link_list",
+            "settings": {
+              "menu_heading": "Meet the Monsters",
+              "menu": "legal-privacy"
+            }
+          }
+        },
+        "block_order": [
+          "69ea7db2-9062-477a-8391-d473152231d1",
+          "f05e040a-e65d-4892-9a7c-20ceacb5234a",
+          "c5f16688-7ab5-4456-9cc6-5815360389ac"
+        ],
+        "settings": {
         }
       }
     },
