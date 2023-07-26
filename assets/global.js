@@ -1199,11 +1199,11 @@ customElements.define('product-recommendations', ProductRecommendations);
 let links=document.getElementsByTagName("a");for(var i=0;i<links.length;i++)if(links[i].host!==window.location.host)links[i].setAttribute("target","_blank");
 
 // Opens OneTrust when #preference-center footer link is clicked
-theme.jQuery(function () {
+(function () {
   document.querySelectorAll('a[href="#preference-center"]').forEach(function (v) {
     v.addEventListener('click', function (e) {
       e.preventDefault();
       if (typeof OneTrust != 'undefined') OneTrust.ToggleInfoDisplay();
     });
   });
-});
+})();
