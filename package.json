@@ -7,7 +7,6 @@
     "pull-merch": "shopify theme pull --nodelete -o templates/*.json config/settings_data.json locales/*.json",
     "concurrently:dev": "concurrently \"yarn run login\" \"yarn run build:dev\"",
     "dev": "yarn run login & yarn run build:dev",
-    "push": "shopify theme push --nodelete --unpublished",
     "lint:prettier": "npx prettier .",
     "lint:liquid": "shopify theme check",
     "lint:fix:prettier": "npx prettier . --write",
