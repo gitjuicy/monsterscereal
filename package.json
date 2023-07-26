@@ -4,6 +4,7 @@
   "scripts": {
     "build:dev": "npx tailwindcss -i ./assets/app-tailwind.css -o ./assets/app.css --watch",
     "login": "shopify theme dev --store https://monsters-cereals.myshopify.com/",
+    "concurrently:dev": "concurrently \"yarn run login\" \"yarn run build:dev\"",
     "dev": "yarn run login & yarn run build:dev",
     "lint:prettier": "npx prettier .",
     "lint:liquid": "shopify theme check",
@@ -14,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.4",
+    "concurrently": "^8.2.0",
     "husky": "^7.0.4",
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",

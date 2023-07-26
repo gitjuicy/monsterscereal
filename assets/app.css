@@ -1865,6 +1865,10 @@ video {
   background-color: rgb(70 39 114 / var(--tw-bg-opacity));
 }
 
+.bg-\[url\(\'\~\/src\/img\/text-section-bg\.jpg\'\)\] {
+  background-image: url('~/src/img/text-section-bg.jpg');
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -2088,6 +2092,31 @@ video {
 
 .pt-\[80px\] {
   padding-top: 80px;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
+
+.pt-0 {
+  padding-top: 0px;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
 }
 
 .text-left {
@@ -2720,8 +2749,14 @@ video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+
   .sm\:text-\[18px\] {
     font-size: 18px;
+  }
+  
+  .sm\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 
   .sm\:text-\[48px\] {
@@ -2764,6 +2799,11 @@ video {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .md\:text-7xl {
