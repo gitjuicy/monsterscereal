@@ -3,16 +3,16 @@
     {% case block.type %}
       {% when 'link_list' %}
         <h2>{{ block.settings.menu_heading }}</h2>
-        <ul>
+        <ul role="list">
           {% for menu in block.settings.menu %}
-            <li>
+            <li role="listitem">
               <a href="{{ menu.url }}">{{ menu.name }}</a>
             </li>
           {% endfor %}
         </ul>
       {% when 'image_picker' %}
         {% if block.settings.footer_image.enabled %}
-          {{ block.settings.footer_image | image_url: width: 400 | image_tag }}"
+          {{ block.settings.footer_image | image_url: width: 400 | image_tag }}
         {% endif %}
     {% endcase %}
   {% endfor %}
@@ -24,6 +24,7 @@
   "blocks": [
     {
       "type": "link_list",
+      "id": "footer_menu",
       "name": "Footer menu",
       "settings": [
         {
@@ -34,7 +35,7 @@
         },
         {
           "id": "menu",
-          "type": "menu_links",
+          "type": "link_list",
           "label": "Footer link"
         }
       ]
