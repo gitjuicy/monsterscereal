@@ -240,6 +240,7 @@
         font-family: "CoopBold";
         src: url("{{ 'coopbold-regular.otf' | asset_url }}") format('opentype');
       }
+
       @font-face {
         font-family: 'Helvetica Neue';
         font-weight: 400;
@@ -314,6 +315,74 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    <!-- OneTrust Cookies Consent Notice start for {{ shop.name }} -->
+    <script
+      src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+      data-document-language="true"
+      type="text/javascript"
+      charset="UTF-8"
+      data-domain-script="d941ea3a-82a5-4487-8c84-ca63da6183c5"
+      defer
+    ></script>
+    <script defer>
+      const performanceCookieCategory = 'C0002,';
+      function waitForOneTrust() {
+        hasOneTrustLoaded();
+        let attempts = 0;
+        const interval = setInterval(function () {
+          if (hasOneTrustLoaded() || attempts > 100) {
+            clearInterval(interval);
+          }
+          attempts++;
+        }, 100);
+      }
+
+      function hasOneTrustLoaded() {
+        if (typeof window.OnetrustActiveGroups === 'string') {
+          //check now
+          optanonWrapper();
+          // and wrap and trigger after cookie opt-in
+          window.OptanonWrapper = optanonWrapper;
+          return true;
+        }
+        return false;
+      }
+
+      function sendConsent(trackingConsent) {
+        window.Shopify.customerPrivacy.setTrackingConsent(trackingConsent, () => {
+          console.log('Happy Days');
+        });
+      }
+
+      function optanonWrapper() {
+        if (typeof OneTrust !== 'undefined') {
+          OneTrust.OnConsentChanged(function () {
+            location.reload();
+          });
+        }
+        const trackingConsent = !!window.OnetrustActiveGroups.includes(performanceCookieCategory);
+        window.Shopify.loadFeatures(
+          [
+            {
+              name: 'consent-tracking-api',
+              version: '0.1',
+            },
+          ],
+          (error) => {
+            if (error) {
+              throw error;
+            }
+            sendConsent(trackingConsent);
+          }
+        );
+      }
+
+      (function () {
+        waitForOneTrust();
+      })();
+    </script>
+    <!-- OneTrust Cookies Consent Notice end for {{ shop.name }} -->
   </head>
 
   <body class="mx-auto flex flex-col min-h-screen antialiased max-w-[1500px] bg-purple{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
