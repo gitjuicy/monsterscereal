@@ -1,4 +1,4 @@
-<footer class="bg-gradient-to-b bg-purple">
+<div class="bg-gradient-to-b bg-purple">
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'link_list' %}
@@ -14,11 +14,12 @@
         {{ block.settings.footer_image | image_url: width: 400 | image_tag }}
     {% endcase %}
   {% endfor %}
-</footer>
+</div>
 
 {% schema %}
 {
   "name": "Footer",
+  "tag": "footer",
   "blocks": [
     {
       "type": "link_list",

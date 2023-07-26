@@ -19,7 +19,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "MEET CARMELLA",
-            "button_link_1": "shopify:\/\/products\/carmella-creeper"
+            "button_link_1": "shopify://products/carmella-creeper"
           }
         }
       },
@@ -29,7 +29,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/home-hero.png"
+        "image": "shopify://shop_images/home-hero.png"
       }
     },
     "home_content": {
@@ -63,7 +63,7 @@
         "heading_2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/text-section-bg.jpg"
+        "image": "shopify://shop_images/text-section-bg.jpg"
       }
     },
     "home_grid": {
@@ -74,7 +74,7 @@
     "home_image": {
       "type": "home-image",
       "settings": {
-        "image": "shopify:\/\/shop_images\/monster-mash-group.png"
+        "image": "shopify://shop_images/monster-mash-group.png"
       }
     }
   },
