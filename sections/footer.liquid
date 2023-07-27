@@ -9,7 +9,14 @@
               {% for menu in block.settings.menu.links %}
                 <li class="uppercase" role="listitem">
                   <a href="{{ menu.url }}" role="{% if menu.title == 'Customize Cookie Settings' %}button{% endif %}">
-                    {%- if menu.title == 'Your Privacy Choices' -%}
+                    {%- if menu.title == 'Customize Cookie Settings' -%}
+                      {% render 'customize' %}
+                    {% endif %}
+                    {{ menu.title }}
+                    {% if block.settings.menu.handle == 'legal-privacy' and menu.title != 'Customize Cookie Settings' %}
+                      {% render 'new-window' %}
+                    {% endif %}
+                    {% if menu.title == 'Your Privacy Choices' %}
                       <img
                         src="{{ 'privacy-options-icon.png' | asset_url }}"
                         alt="California Consumer Privacy Act Opt-Out"
@@ -18,12 +25,6 @@
                         height="3-"
                         loading="lazy"
                       >
-                    {%- elsif menu.title == 'Customize Cookie Settings' -%}
-                      {% render 'customize' %}
-                    {% endif %}
-                    {{ menu.title }}
-                    {% if block.settings.menu.handle == 'legal-privacy' and menu.title != 'Customize Cookie Settings' %}
-                      {% render 'new-window' %}
                     {% endif %}
                   </a>
                 </li>
