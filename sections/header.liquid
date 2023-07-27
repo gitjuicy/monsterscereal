@@ -35,24 +35,22 @@
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'image_picker' %}
-        {{ block.settings.header_image | image_url: width: 230 | image_tag: class: 'md:max-w-240 hover:scale-125' | link_to: block.settings.header_image__link, class: 'w-36 md:w-40 top-3 absolute' }}
+      {{ block.settings.header_image | image_url: width: 230 | image_tag: class: 'md:max-w-240 hover:scale-125' | link_to: block.settings.header_image__link, class: 'w-36 md:w-40 top-3 absolute' }}
       {% when 'link_list' %}
-        <ul class="flex absolute bottom-0 translate-y-1/2	items-center gap-3 sm:gap-12" role="list">
-          {% for link in block.settings.menu.links %}
-            <li class="uppercase" role="listitem">
-              {% for product in collections.all.products %}
-                {% if product.handle == link.handle %}
-                  {{ product.metafields.custom.logo | image_url: width: 140 | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px]' | link_to: product.url }}
-                {% endif %}
-              {% endfor %}
-            </li>
-          {% endfor %}
-        </ul>
-      {% endcase %}
-    {% endfor %}
-  </div>
-  
-  <script>console.log({{ all_products }})</script>
+      <ul class="flex absolute bottom-0 translate-y-1/2 items-center gap-3 sm:gap-12" role="list">
+        {% for link in block.settings.menu.links %}
+          <li class="uppercase" role="listitem">
+            {% for product in collections.all.products %}
+              {% if product.handle == link.handle %}
+                {{ product.metafields.custom.logo | image_url: width: 140 | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px]' | link_to: product.url }}
+              {% endif %}
+            {% endfor %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endcase %}
+  {% endfor %}
+</div>
 
 {% schema %}
 {
