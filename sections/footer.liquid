@@ -1,40 +1,46 @@
-<div class="bg-gradient-to-b from-purple font-bold to-black font-helvetica text-white grid md:grid-cols-3 justify-items-center md:justify-around w-full gap-5 md:gap-0 text-center md:text-left px-8 py-8">
-  {% for block in section.blocks %}
-    {% case block.type %}
-      {% when 'link_list' %}
-        <div>
-          <h2 class="text-white font-coop">{{ block.settings.menu_heading }}</h2>
-          <ul role="list">
-            {% for menu in block.settings.menu.links %}
-              <li class="uppercase" role="listitem">
-                <a href="{{ menu.url }}">
-                  {{ menu.title }}
-                  {% if block.settings.menu.handle == 'legal-privacy' and menu.title != 'Customize Cookie Settings' %}
-                    {% render 'new-window' %}
-                  {% endif %}
-                  {%- if menu.title == 'Your Privacy Choices' -%}
-                    <img
-                      src="{{ 'privacy-options-icon.png' | asset_url }}"
-                      alt="California Consumer Privacy Act Opt-Out"
-                      class="privacy-options-icon inline pb-2"
-                      width="30"
-                      height="3-"
-                      loading="lazy"
-                    >
-                  {%- endif -%}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% when 'image_picker' %}
-        <div>
-          {{ block.settings.footer_image | image_url: width: 150 | image_tag }}
-        </div>
-    {% endcase %}
-  {% endfor %}
+<div class="bg-gradient-to-b from-purple font-bold to-black font-helvetica text-white ">
+  <div class="grid md:grid-cols-3 justify-items-center md:justify-around w-full gap-5 md:gap-0 text-center md:text-left px-8 py-8">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'link_list' %}
+          <div>
+            <h2 class="text-white font-coop">{{ block.settings.menu_heading }}</h2>
+            <ul role="list">
+              {% for menu in block.settings.menu.links %}
+                <li class="uppercase" role="listitem">
+                  <a href="{{ menu.url }}">
+                    {%- if menu.title == 'Your Privacy Choices' -%}
+                      <img
+                        src="{{ 'privacy-options-icon.png' | asset_url }}"
+                        alt="California Consumer Privacy Act Opt-Out"
+                        class="privacy-options-icon inline pb-2 mr-2"
+                        width="30"
+                        height="3-"
+                        loading="lazy"
+                      >
+                    {%- elsif menu.title == 'Customize Cookie Settings' -%}
+                      {% render 'customize' %}
+                    {% endif %}
+                    {{ menu.title }}
+                    {% if block.settings.menu.handle == 'legal-privacy' and menu.title != 'Customize Cookie Settings' %}
+                      {% render 'new-window' %}
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% when 'image_picker' %}
+          <div>
+            {{ block.settings.footer_image | image_url: width: 150 | image_tag | link_to: block.settings.footer_image__link }}
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+  <p class="flex justify-center text-center text-white font-helvetica font-bold pb-5">
+    © {{ 'now' | date: '%Y' }} General Mills. All rights reserved
+  </p>
 </div>
-
 {% schema %}
 {
   "name": "Footer",
@@ -66,6 +72,13 @@
           "type": "image_picker",
           "label": "Image",
           "info": "Select an image for the footer"
+        },
+        {
+          "id": "footer_image__link",
+          "type": "url",
+          "label": "Image link",
+          "info": "Link for footer image: (default home)",
+          "default": "/"
         }
       ]
     }
