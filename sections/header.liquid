@@ -31,7 +31,7 @@
   <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-<div class="z-10 relative h-36 md:h-44 bg-inherit 2xl:bg-contain bg-size-100 bg-fixed flex flex-col items-center p-6 md:p-8 lg:p-12 backdrop-blur-lg w-full leading-none antialiased" style="background: url({{ 'header-bg.jpg' | asset_url }})">
+<div class="z-10 relative h-36 md:h-60 bg-inherit 2xl:bg-contain bg-size-100 bg-fixed flex flex-col items-center p-6 md:p-8 lg:p-12 backdrop-blur-lg w-full leading-none antialiased" style="background: url({{ 'header-bg.jpg' | asset_url }})">
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'image_picker' %}
