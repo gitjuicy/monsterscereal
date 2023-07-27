@@ -1,188 +1,92 @@
-{% style %}
-  .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: rgba(0,0,0,0.5);
-    height: 100vh;
-  }
-
-  .agegate {
-    width: 100%;
-    max-width: 1000px;
-    padding: 150px 20px;
-    margin: 0 auto;
-    text-align: center;
-    background: linear-gradient(90deg, rgba(227,104,130,0.9), rgba(169,117,186,0.9) 50%, rgba(169,117,186,0.9) 100%);;
-    border: 5px solid #FFF;
-    border-radius: 5px;
-  }
-
-  .agegate#Prohibited {
-    background: linear-gradient(45deg, rgba(192,42,33,0.9), rgba(255,82,0,0.9) 50%, rgba(240,73,55,0.9) 100%);
-  }
-
-  @media (max-width: 768px) {
-    .agegate {
-      padding: 60px 20px;
-    }
-    #Prohibited {
-      padding: 60px 20px;
-    }
-  }
-
-  .agegate h2, .agegate .h3 a, .agegate p, .agegate label {
-    color: #FFFFFF;
-    margin-top: 0;
-  }
-
-  .agegate h2, .agegate label {
-    line-height: 1;
-  }
-
-  .agegate p {
-     line-height: 1.5em;
-     margin-bottom: 0;
-   }
-
-  .agegate button {
-    border: none;
-    border-radius: 20px;
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-    color: #fff;
-    cursor: pointer;
-    font-size: 2rem;
-    font-weight: 600;
-    width: 310px;
-    max-width: 310px;
-    padding: 0.625rem 2.5rem;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    background: #BA002F;
-    letter-spacing: .1em;
-    height: 60px;
-  }
-  .agegate select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: 5px solid #622A78;
-    border-radius: 20px;
-    clear: both;
-    text-transform: uppercase;
-    display: block;
-    line-height: 1.2;
-    text-align: center;
-    margin: 0 auto 1rem;
-    outline: 0;
-    max-width: 310px;
-    width: 100%;
-    height: 60px;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #622A78;
-    position: relative;
-  }
-  .agegate :focus-visible {
-    box-shadow: none;
-  }
-  .agegate button:hover {
-    box-shadow: 0 1.5625rem 1.125rem -0.5625rem rgb(0 0 0 / 20%), 0.125rem 0.125rem 0.25rem #000;
-  }
-  #age_div {
-    max-width: 310px;
-    margin: 0 auto;
-    position: relative;
-  }
-  :root {
-    --transform: translateY(-50%) rotate(0deg);
-  }
-  #age_div::after {
-    content: "";
-    position: absolute;
-    border-top: 15px solid #622A7B;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    width: 0;
-    height: 0;
-    right: 20px;
-    top: 50%;
-    transform: var(--transform);
-  }
-  #Prohibited {
-    padding: 230.5px 20px;
-  }
-{% endstyle %}
-
-<div class="modal" id="Modal">
-  <div id="AgeGate" class="agegate">
-    <p class="h3" style="line-height: 1em; margin-bottom: 10px;">BEFORE WE BEGIN</p>
-    <h2 style="margin-bottom: 30px;">Please confirm your age.</h2>
+<div class="flex justify-center items-center fixed inset-x-0 top-0 z-50 bg-black bg-opacity-50 h-screen" id="Modal">
+  <div
+    id="AgeGate"
+    class="w-full max-w-800 px-[20px] py-[144px] md:py-[64px] mx-auto my-0 text-center bg-gradient-to-r from-purple to-black border-4 border-solid border-white border-rounded focus-visible:shadow-none"
+  >
+    <p class="font-coop text-[24px] text-white mt-0 leading-[24px] mb-0">BEFORE WE BEGIN</p>
+    <h2 class="font-coop text-[36px] text-white mt-0 leading-none">Please confirm your age.</h2>
     <form>
-      <label for="age_range" class="h3 form__label">Select your age range</label>
+      <label for="age_range" class="font-helvetica text-[16px] text-white font-bold mt-0 leading-none"
+        >Select your age range</label
+      >
       <p role="alert" class="error-message error hidden">Please complete all the required fields to continue.</p>
       <div class="form-button-wrapper">
-          <div id="age_div" class="required">
-            <select name="age" required="" id="age_range">
-              <option value="">Age Range</option>
-              <option value="0-8">0-8 years</option>
-              <option value="9-15">9-15 years</option>
-              <option value="16-17">16-17 years</option>
-              <option value="18-25">18-25 years</option>
-              <option value="26+">26+ years</option>
-            </select>
-          </div>
-          <div class="submit">
-              <button type="submit" class="go-next" title="CONTINUE">CONTINUE</button>
-          </div>
+        <div id="age_div" class="required max-w-310 mx-auto my-0 relative">
+          <select
+            name="age"
+            required=""
+            id="age_range"
+            class="font-helvetica inline-block max-w-310 bg-white text-black font-bold text-center w-[320px] py-[8px] my-[16px] rounded-full"
+          >
+            <option value="">Age Range</option>
+            <option value="0-8">0-8 years</option>
+            <option value="9-15">9-15 years</option>
+            <option value="16-17">16-17 years</option>
+            <option value="18-25">18-25 years</option>
+            <option value="26+">26+ years</option>
+          </select>
+        </div>
+        <div class="submit">
+          <button
+            type="submit"
+            class="go-next font-helvetica inline-block max-w-310 bg-red hover:bg-red-light text-white font-bold text-center w-[320px] py-[8px] rounded-full"
+            title="CONTINUE"
+          >
+            CONTINUE
+          </button>
+        </div>
       </div>
     </form>
   </div>
-  <div id="Prohibited" class="agegate" style="display: none">
-    <h2>We're sorry</h2>
-    <p class="h3">It looks like you're not eligible to participate.</p>
-    <p class="h3">Please see the <a href="https://www.generalmills.com/privacy-security/legal-terms/us-english-terms-of-use" target="_blank">Terms and Conditions</a> for complete details on who can participate.</p>
+  <div
+    id="Prohibited"
+    class="agegate w-full max-w-800 px-[20px] py-[144px] md:py-[64px] mx-auto my-0 text-center bg-gradient-to-r from-purple to-black border-4 border-solid border-white border-rounded focus-visible:shadow-none"
+    style="display: none"
+  >
+    <h2 class="font-coop text-[36px] text-white mt-0 leading-none">We're sorry</h2>
+    <p class="font-coop text-[24px] text-white mt-0 leading-[24px] mb-0">
+      It looks like you're not eligible to participate.
+    </p>
+    <p class="font-coop text-[24px] text-white mt-0 leading-[24px] mb-0">
+      Please see the
+      <a href="https://www.generalmills.com/privacy-security/legal-terms/us-english-terms-of-use" target="_blank"
+        >Terms and Conditions</a
+      >
+      for complete details on who can participate.
+    </p>
   </div>
 </div>
 
 <script>
-  (function() {
+  (function () {
     function getCookie(cname) {
-      const name = cname + "=", decodedCookie = decodeURIComponent(document.cookie), ca = decodedCookie.split(';');
-      for (let i = 0; i <ca.length; i++) {
+      const name = cname + '=',
+        decodedCookie = decodeURIComponent(document.cookie),
+        ca = decodedCookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
-        while (c.charAt(0) == ' ')
-          c = c.substring(1);
-        if (c.indexOf(name) == 0)
-          return c.substring(name.length, c.length);
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
       }
-      return "";
-    };
-    document.querySelector('#AgeGate form').addEventListener('submit', function(e) {
+      return '';
+    }
+    document.querySelector('#AgeGate form').addEventListener('submit', function (e) {
       e.preventDefault();
       e.stopPropagation();
       const v = document.querySelector('#AgeGate form select').value;
       document.getElementById('AgeGate').style.display = 'none';
-      if (v == '0-8' || v == '9-15' || v == '16-17')
-        document.getElementById('Prohibited').style.display = 'block';
+      if (v == '0-8' || v == '9-15' || v == '16-17') document.getElementById('Prohibited').style.display = 'block';
       else {
         //window.location.href = '/products/minify-your-morning-kit';
         document.querySelector('#Modal').style.display = 'none';
         document.querySelector('#AgeGate').style.display = 'none';
-        document.cookie = "skipagegate=true; path=/; secure=true";
+        document.cookie = 'skipagegate=true; path=/; secure=true';
       }
     });
     function rotateTriangle() {
-      document.documentElement.style.setProperty('--transform','translateY(-50%) rotate(180deg)');
+      document.documentElement.style.setProperty('--transform', 'translateY(-50%) rotate(180deg)');
     }
-    document.querySelector('#age_range').addEventListener("click", rotateTriangle);
+    document.querySelector('#age_range').addEventListener('click', rotateTriangle);
     if (getCookie('skipagegate') == 'true') {
       document.querySelector('#Modal').style.display = 'none';
       document.querySelector('#AgeGate').style.display = 'none';
