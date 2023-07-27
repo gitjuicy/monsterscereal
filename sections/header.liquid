@@ -35,7 +35,7 @@
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'image_picker' %}
-      {{ block.settings.header_image | image_url: width: 230 | image_tag: class: 'md:max-w-240 hover:scale-125' | link_to: block.settings.header_image__link, class: 'w-36 md:w-40 top-3 absolute' }}
+      {{ block.settings.header_image | image_url: width: 230 | image_tag: class: 'md:max-w-240 hover:scale-125' | link_to: block.settings.header_image__link, class: 'w-36 md:w-40 top-3 absolute flex justify-center' }}
       {% when 'link_list' %}
       <ul class="flex absolute bottom-0 translate-y-1/2 items-center gap-3 sm:gap-12" role="list">
         {% for link in block.settings.menu.links %}

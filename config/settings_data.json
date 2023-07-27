@@ -130,6 +130,13 @@
       "header": {
         "type": "header",
         "blocks": {
+          "8966df99-dd32-4cad-bb84-41aaee74a7fa": {
+            "type": "image_picker",
+            "settings": {
+              "header_image": "shopify:\/\/shop_images\/monsters-cereal-logo.png",
+              "header_image__link": "\/"
+            }
+          },
           "header": {
             "type": "link_list",
             "settings": {
@@ -138,6 +145,7 @@
           }
         },
         "block_order": [
+          "8966df99-dd32-4cad-bb84-41aaee74a7fa",
           "header"
         ],
         "settings": {
