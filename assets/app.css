@@ -2820,6 +2820,10 @@ video {
     height: 11rem;
   }
 
+  .md\:h-60 {
+    height: 15rem;
+  }
+
   .md\:w-3\/5 {
     width: 60%;
   }
