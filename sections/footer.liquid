@@ -8,7 +8,7 @@
             <ul role="list">
               {% for menu in block.settings.menu.links %}
                 <li class="uppercase" role="listitem">
-                  <a href="{{ menu.url }}">
+                  <a href="{{ menu.url }}" role="{% if menu.title == 'Customize Cookie Settings' %}button{% endif %}">
                     {%- if menu.title == 'Your Privacy Choices' -%}
                       <img
                         src="{{ 'privacy-options-icon.png' | asset_url }}"
@@ -32,7 +32,12 @@
           </div>
         {% when 'image_picker' %}
           <div>
-            {{ block.settings.footer_image | image_url: width: 150 | image_tag | link_to: block.settings.footer_image__link }}
+            {{
+              block.settings.footer_image
+              | image_url: width: 150
+              | image_tag
+              | link_to: block.settings.footer_image__link
+            }}
           </div>
       {% endcase %}
     {% endfor %}
