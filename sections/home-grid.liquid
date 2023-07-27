@@ -4,7 +4,6 @@
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-center items-stretch w-full h-full">
   {%- for product in products -%}
-    {% assign color = product.metafields.theme.details.value.style.color %}
     {% capture cardStyle %}
       {% if product.handle == 'boo-berry' %}
         relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-blue to-black
@@ -18,7 +17,16 @@
     {% endcapture %}
 
     {% capture linkStyle %}
-      font-helvetica inline-block bg-{{ color }} hover:bg-{{ color }}-light text-white font-bold text-center w-[208px] xl:w-[288px] py-[8px] rounded-full
+      {% if product.handle == 'boo-berry' %}
+        bg-blue hover:bg-blue-light 
+      {% elsif product.handle == 'count-chocula' %}
+        bg-brown hover:bg-brown-light 
+      {% elsif product.handle == 'carmella-creeper' %}
+        bg-green hover:bg-green-light 
+      {% elsif product.handle == 'franken-berry' %}
+        bg-pink hover:bg-pink-light 
+      {% endif %}
+      font-helvetica inline-block text-white font-bold text-center w-[208px] xl:w-[288px] py-[8px] rounded-full
     {% endcapture %}
 
     <div class="{{ cardStyle }}">
