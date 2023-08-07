@@ -71,6 +71,11 @@
       "settings": {
       }
     },
+    "music-visualizer": {
+      "type": "music-visualizer",
+      "settings": {
+      }
+    },
     "home_image": {
       "type": "home-image",
       "settings": {
@@ -82,6 +87,7 @@
     "home_hero",
     "home_content",
     "home_grid",
+    "music-visualizer",
     "home_image"
   ]
 }
