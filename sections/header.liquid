@@ -42,7 +42,7 @@
 {%- endif -%}
 
 {% liquid
-  assign monster_urls = "/pages/carmella-creeper, /pages/franken-berry, /pages/boo-berry, /pages/count-chocula" | split: ', ' 
+  assign monster_urls = "/pages/carmella-creeper /pages/franken-berry /pages/boo-berry /pages/count-chocula" | split: ' '
 %}
 
 <div
@@ -63,25 +63,24 @@
         <ul class="flex absolute bottom-0 translate-y-1/2 items-center gap-[12px] sm:gap-[48px]" role="list">
           {% for link in block.settings.menu.links %}
             <li class="uppercase" role="listitem">
-              {% for url in monster_urls %}
-                {% if url == link.handle %}
-                  {% if url == '/pages/carmella-creeper' %}
-                    {{
-                      page.metafields.custom.alternate_logo
-                      | image_url: width: 140
-                      | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px] pb-[20px]'
-                      | link_to: url
-                    }}
-                  {% else %}
-                    {{
-                      page.metafields.custom.logo
-                      | image_url: width: 140
-                      | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px]'
-                      | link_to: url
-                    }}
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
+              {% assign logo_image = '' %}
+              {% if link.handle == 'carmella-creeper' %}
+                {% assign logo_image = pages[link.handle].metafields.custom.alternate_logo %}
+                 {{
+                  logo_image
+                    | image_url: width: 140
+                    | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px] pb-[20px]'
+                    | link_to: link.handle
+                  }}
+              {% else %}
+                {% assign logo_image = pages[link.handle].metafields.custom.logo %}
+                {{
+                  logo_image
+                  | image_url: width: 140
+                  | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px]'
+                  | link_to: link.handle
+                }}
+              {% endif %}
             </li>
           {% endfor %}
         </ul>

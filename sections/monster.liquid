@@ -4,10 +4,13 @@
   assign secondary_image = page.metafields.custom.secondary_image
   assign footer_image = page.metafields.custom.footer_image
 
-  assign monster_urls = "/pages/carmella-creeper, /pages/franken-berry, /pages/boo-berry, /pages/count-chocula" | split: ', ' 
+  assign monster_urls = "carmella-creeper franken-berry boo-berry count-chocula" | split: ' '
 
-  for i in (0..monster_urls.size)
-    if monster_urls[i] == page.handle
+  for monster_url in monster_urls
+    assign relative_url_parts = monster_url | split: '/'
+    assign monster_handle = relative_url_parts.last
+
+    if monster_handle == page.handle
       assign previous_index = forloop.index0 | minus: 1
       assign previous_cereal = monster_urls[previous_index]
       assign next_index = forloop.index0 | plus: 1
@@ -39,7 +42,9 @@
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2">
     <div class="w-4/5 mx-auto">
-      {{ main_image | image_url: width: 500 | image_tag }}
+      {% if main_image %}
+        {{ main_image | image_url: width: 500 | image_tag }}
+      {% endif %}
     </div>
     <div class="product-description text-white w-4/5 sm:w-11/12 mx-auto">
       <h2 class="uppercase text-white font-coop text-6xl">Who is {{ page.title }}?</h2>
