@@ -3,17 +3,17 @@ function waitForOneTrust() {
   hasOneTrustLoaded();
   let attempts = 0;
   const interval = setInterval(function () {
-    if (hasOneTrustLoaded() || attempts > 100){
+    if (hasOneTrustLoaded() || attempts > 100) {
       clearInterval(interval);
-    } 
+    }
     attempts++;
-  }, 100)
+  }, 100);
 }
 
 function hasOneTrustLoaded() {
   if (typeof window.OnetrustActiveGroups === 'string') {
     //check now
-    optanonWrapper()
+    optanonWrapper();
     // and wrap and trigger after cookie opt-in
     window.OptanonWrapper = optanonWrapper;
     return true;
@@ -23,13 +23,13 @@ function hasOneTrustLoaded() {
 
 function sendConsent(trackingConsent) {
   window.Shopify.customerPrivacy.setTrackingConsent(trackingConsent, () => {
-    console.log('Happy Days')
+    console.log('Happy Days');
   });
 }
 
 function optanonWrapper() {
-  if (typeof(OneTrust) !== 'undefined') {
-    OneTrust.OnConsentChanged(function() {
+  if (typeof OneTrust !== 'undefined') {
+    OneTrust.OnConsentChanged(function () {
       location.reload();
     });
   }
@@ -41,11 +41,11 @@ function optanonWrapper() {
         version: '0.1',
       },
     ],
-    error => {
+    (error) => {
       if (error) {
-        throw error; 
+        throw error;
       }
-      sendConsent(trackingConsent)
+      sendConsent(trackingConsent);
     },
   );
 }
@@ -55,12 +55,11 @@ function optanonWrapper() {
 })();
 
 // Opens OneTrust when #preference-center footer link is clicked
-theme.jQuery(function() {
-  document.querySelectorAll('a[href="#preference-center"]').forEach(function(v) {
-    v.addEventListener('click', function(e) {
+theme.jQuery(function () {
+  document.querySelectorAll('a[href="#preference-center"]').forEach(function (v) {
+    v.addEventListener('click', function (e) {
       e.preventDefault();
-      if (typeof(OneTrust) != 'undefined')
-        OneTrust.ToggleInfoDisplay();
+      if (typeof OneTrust != 'undefined') OneTrust.ToggleInfoDisplay();
     });
   });
 });

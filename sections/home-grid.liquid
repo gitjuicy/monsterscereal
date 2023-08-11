@@ -1,36 +1,36 @@
 {% liquid
-  assign products = collections.cereal.products
+  assign monster_urls = "carmella-creeper franken-berry boo-berry count-chocula" | split: ' '
 %}
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-center items-stretch w-full h-full">
-  {%- for product in products -%}
+  {%- for monster_url in monster_urls -%}
     {% capture cardStyle %}
-      {% if product.handle == 'boo-berry' %}
+      {% if monster_url == 'boo-berry' %}
         relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-blue to-black
-      {% elsif product.handle == 'count-chocula' %}
+      {% elsif monster_url == 'count-chocula' %}
         relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-brown to-black
-      {% elsif product.handle == 'carmella-creeper' %}
+      {% elsif monster_url == 'carmella-creeper' %}
         relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-green to-black
-      {% elsif product.handle == 'franken-berry' %}
+      {% elsif monster_url == 'franken-berry' %}
         relative flex flex-col justify-between items-center h-full bg-gradient-to-br from-pink to-black
       {% endif %}
     {% endcapture %}
 
     {% capture linkStyle %}
-      {% if product.handle == 'boo-berry' %}
+      {% if monster_url == 'boo-berry' %}
         bg-blue hover:bg-blue-light 
-      {% elsif product.handle == 'count-chocula' %}
+      {% elsif monster_url == 'count-chocula' %}
         bg-brown hover:bg-brown-light 
-      {% elsif product.handle == 'carmella-creeper' %}
+      {% elsif monster_url == 'carmella-creeper' %}
         bg-green hover:bg-green-light 
-      {% elsif product.handle == 'franken-berry' %}
+      {% elsif monster_url == 'franken-berry' %}
         bg-pink hover:bg-pink-light 
       {% endif %}
       font-helvetica inline-block text-white font-bold text-center w-[208px] xl:w-[288px] py-[8px] rounded-full
     {% endcapture %}
 
     <div class="{{ cardStyle }}">
-      {% if product.handle == 'carmella-creeper' %}
+      {% if monster_url == 'carmella-creeper' %}
         {% comment %}theme-check-disable ImgWidthAndHeight{% endcomment %}
         <img
           class="w-4/5 absolute top-0 left-0 -translate-y-1/2"
@@ -41,7 +41,7 @@
       {% endif %}
       <div class="relative w-4/5 mx-auto">
         {{
-          product.metafields.custom.logo
+          pages[monster_url].metafields.custom.logo
           | image_url: width: 800
           | image_tag:
             loading: 'lazy',
@@ -49,7 +49,7 @@
             alt: product.metafields.custom.package.alt
         }}
         {{
-          product.metafields.custom.package
+          pages[monster_url].metafields.custom.package
           | image_url: width: 800
           | image_tag: loading: 'lazy', class: 'mx-auto', alt: product.metafields.custom.package.alt
         }}
@@ -60,7 +60,7 @@
           href="{{ product.url }}"
           class="{{ linkStyle }}"
         >
-          MEET {{ product.title | upcase }}
+          MEET {{ pages[monster_url].title | upcase }}
         </a>
       </div>
     </div>
