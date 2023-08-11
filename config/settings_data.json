@@ -1,8 +1,8 @@
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/monsters-cereal-logo.png",
+    "logo": "shopify://shop_images/monsters-cereal-logo.png",
     "logo_width": 90,
-    "favicon": "shopify:\/\/shop_images\/favicon-32x32.png",
+    "favicon": "shopify://shop_images/favicon-32x32.png",
     "type_header_font": "cooper_bt_n5",
     "heading_scale": 100,
     "type_body_font": "helvetica_n4",
@@ -133,8 +133,8 @@
           "8966df99-dd32-4cad-bb84-41aaee74a7fa": {
             "type": "image_picker",
             "settings": {
-              "header_image": "shopify:\/\/shop_images\/monsters-cereal-logo.png",
-              "header_image__link": "\/"
+              "header_image": "shopify://shop_images/monsters-cereal-logo.png",
+              "header_image__link": "/"
             }
           },
           "header": {
@@ -157,7 +157,7 @@
           "69ea7db2-9062-477a-8391-d473152231d1": {
             "type": "image_picker",
             "settings": {
-              "footer_image": "shopify:\/\/shop_images\/monsters-cereal-logo.png"
+              "footer_image": "shopify://shop_images/monsters-cereal-logo.png"
             }
           },
           "f05e040a-e65d-4892-9a7c-20ceacb5234a": {
