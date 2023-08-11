@@ -41,6 +41,10 @@
   <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+{% liquid
+  assign monster_urls = "/pages/carmella-creeper /pages/franken-berry /pages/boo-berry /pages/count-chocula" | split: ' '
+%}
+
 <div
   class="z-10 relative h-[144px] md:h-[176px] bg-inherit 2xl:bg-contain bg-size-100 bg-fixed flex flex-col items-center p-[24px] md:p-[32px] lg:p-[48px] backdrop-blur-lg w-full leading-none antialiased"
   style="background: url({{ 'header-bg.jpg' | asset_url }})"
@@ -59,25 +63,26 @@
         <ul class="flex absolute bottom-0 translate-y-1/2 items-center gap-[12px] sm:gap-[48px]" role="list">
           {% for link in block.settings.menu.links %}
             <li class="uppercase" role="listitem">
-              {% for product in collections.all.products %}
-                {% if product.handle == link.handle %}
-                  {% if product.handle == 'carmella-creeper' %}
-                    {{
-                      product.metafields.custom.logo_2
-                      | image_url: width: 140
-                      | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px] pb-[20px]'
-                      | link_to: product.url
-                    }}
-                  {% else %}
-                    {{
-                      product.metafields.custom.logo
-                      | image_url: width: 140
-                      | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px]'
-                      | link_to: product.url
-                    }}
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
+              {% assign logo_image = '' %}
+              {% if link.handle == 'carmella-creeper' %}
+                {% assign logo_image = pages[link.handle].metafields.custom.alternate_logo %}
+                 <a href="/pages/{{ link.handle }}">
+                  {{
+                  logo_image
+                    | image_url: width: 140
+                    | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px] pb-[20px]'
+                  }}
+                </a>
+              {% else %}
+                {% assign logo_image = pages[link.handle].metafields.custom.logo %}
+                <a href="/pages/{{ link.handle }}">
+                  {{
+                    logo_image
+                    | image_url: width: 140
+                    | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px]'
+                  }}
+                </a>
+              {% endif %}
             </li>
           {% endfor %}
         </ul>

@@ -104,7 +104,7 @@ class FacetFiltersForm extends HTMLElement {
     const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
 
     const facetDetailsElements = parsedHTML.querySelectorAll(
-      '#FacetFiltersForm .js-filter, #FacetFiltersFormMobile .js-filter, #FacetFiltersPillsForm .js-filter'
+      '#FacetFiltersForm .js-filter, #FacetFiltersFormMobile .js-filter, #FacetFiltersPillsForm .js-filter',
     );
     const matchesIndex = (element) => {
       const jsFilter = event ? event.target.closest('.js-filter') : undefined;
@@ -229,7 +229,7 @@ class PriceRange extends HTMLElement {
   constructor() {
     super();
     this.querySelectorAll('input').forEach((element) =>
-      element.addEventListener('change', this.onRangeChange.bind(this))
+      element.addEventListener('change', this.onRangeChange.bind(this)),
     );
     this.setMinAndMaxValues();
   }
