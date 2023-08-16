@@ -41,10 +41,6 @@
   <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-{% liquid
-  assign monster_urls = "/pages/carmella-creeper /pages/franken-berry /pages/boo-berry /pages/count-chocula /pages/monster-mash" | split: ' '
-%}
-
 <nav
   class="z-10 relative h-[144px] md:h-[176px] bg-inherit 2xl:bg-contain bg-size-100 bg-fixed flex flex-col items-center lg:p-[48px] backdrop-blur-lg w-full leading-none antialiased"
   style="background: url({{ 'header-bg.jpg' | asset_url }})"
@@ -70,12 +66,12 @@
           role="button"
           loading="eager">
           <div class="hidden mobile-menu bg-gradient-to-b from-purple to-black flex flex-col min-h-screen">
-            <ul class="flex flex-col gap-10 mt-32 mx-auto text-4xl" role="list">
+            <ul class="flex flex-col gap-2 mt-32 mx-auto" role="list">
               {% for link in block.settings.menu.links %}
-                <li class="uppercase font-coop text-white" role="listitem">
+                <li class="uppercase font-coop text-white text-center" role="listitem">
                   {% for product in collections.all.products %}
                     {% if product.handle == link.handle %}
-                        {{ product.title | link_to: product.url }}
+                        {{ product.title | link_to: product.url, class: 'text-4xl' }}
                     {% endif %}
                   {% endfor %}
                 </li>
