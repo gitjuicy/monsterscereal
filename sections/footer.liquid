@@ -4,7 +4,7 @@
       {% case block.type %}
         {% when 'link_list' %}
           <div>
-            <h2 class="text-white font-coop">{{ block.settings.menu_heading }}</h2>
+            <p class="text-white font-normal font-coop text-2xl">{{ block.settings.menu_heading }}</p>
             <ul role="list">
               {% for menu in block.settings.menu.links %}
                 <li class="uppercase" role="listitem">
