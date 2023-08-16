@@ -1,0 +1,84 @@
+{% liquid
+  assign background_color = page.metafields.custom.background_color.value
+  assign main_image = page.metafields.custom.main_image
+  assign secondary_image = page.metafields.custom.secondary_image
+  assign footer_image = page.metafields.custom.footer_image
+
+  assign monster_urls = "carmella-creeper franken-berry boo-berry count-chocula monster-mash" | split: ' '
+
+  for monster_url in monster_urls
+    assign relative_url_parts = monster_url | split: '/'
+    assign monster_handle = relative_url_parts.last
+
+    if monster_handle == page.handle
+      assign previous_index = forloop.index0 | minus: 1
+      assign previous_cereal = monster_urls[previous_index]
+      assign next_index = forloop.index0 | plus: 1
+      if forloop.index == monster_urls.size
+        assign next_cereal = monster_urls[0]
+      else
+        assign next_cereal = monster_urls[next_index]
+      endif
+    endif
+  endfor
+%}
+
+{% stylesheet %}
+  .product-description p {
+    padding: 0.5rem 0;
+    letter-spacing: initial;
+    font-weight: 700;
+    font-family: system-ui;
+  }
+
+  .product-description p strong {
+    font-weight: bolder;
+  }
+{% endstylesheet %}
+
+<section
+  id="Monster-{{ section.id }}"
+  class="text-white monster"
+  data-section="{{ section.id }}"
+  style="background: linear-gradient(to bottom, {{ background_color[0] }}, {{ background_color[1] }});"
+>
+  <div class="flex flex-row flex-nowrap items-center justify-between gap-5 max-w-1000 my-0 mx-auto px-10">
+    {% render 'arrow-left', previous_cereal: previous_cereal %}
+    <h1 class="uppercase text-white text-center font-coop text-5xl md:text-7xl py-16">Meet {{ page.title }}</h1>
+    {% render 'arrow-right', next_cereal: next_cereal %}
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="w-4/5 mx-auto">
+      {% if main_image %}
+        {{ main_image | image_url: width: 500 | image_tag }}
+      {% endif %}
+    </div>
+    <div class="product-description text-white w-4/5 sm:w-11/12 mx-auto">
+      <h2 class="uppercase text-white font-coop text-4xl">
+        {% if page.title == 'Monster Mash' %}What{% else %}Who{% endif %} is {{ page.title }}?
+      </h2>
+      {{ page.content }}
+      {% if secondary_image %}
+        <aside>{{ secondary_image | image_url: width: 650 | image_tag }}</aside>
+      {% endif %}
+    </div>
+  </div>
+  {% if footer_image %}
+    {{ footer_image | image_url: width: 1400 | image_tag }}
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Monster",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+
+  ],
+  "settings": [
+
+  ]
+}
+{% endschema %}
+

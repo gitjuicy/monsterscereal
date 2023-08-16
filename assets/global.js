@@ -1,8 +1,8 @@
 function getFocusableElements(container) {
   return Array.from(
     container.querySelectorAll(
-      "summary, a[href], button:enabled, [tabindex]:not([tabindex^='-']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe"
-    )
+      "summary, a[href], button:enabled, [tabindex]:not([tabindex^='-']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe",
+    ),
   );
 }
 
@@ -115,7 +115,7 @@ function focusVisiblePolyfill() {
       currentFocusedElement = document.activeElement;
       currentFocusedElement.classList.add('focused');
     },
-    true
+    true,
   );
 }
 
@@ -160,7 +160,7 @@ class QuantityInput extends HTMLElement {
 
     this.input.addEventListener('change', this.onInputChange.bind(this));
     this.querySelectorAll('button').forEach((button) =>
-      button.addEventListener('click', this.onButtonClick.bind(this))
+      button.addEventListener('click', this.onButtonClick.bind(this)),
     );
   }
 
@@ -361,10 +361,10 @@ class MenuDrawer extends HTMLElement {
 
   bindEvents() {
     this.querySelectorAll('summary').forEach((summary) =>
-      summary.addEventListener('click', this.onSummaryClick.bind(this))
+      summary.addEventListener('click', this.onSummaryClick.bind(this)),
     );
     this.querySelectorAll('button:not(.localization-selector)').forEach((button) =>
-      button.addEventListener('click', this.onCloseButtonClick.bind(this))
+      button.addEventListener('click', this.onCloseButtonClick.bind(this)),
     );
   }
 
@@ -495,7 +495,7 @@ class HeaderDrawer extends MenuDrawer {
       this.borderOffset || this.closest('.header-wrapper').classList.contains('header-wrapper--border-bottom') ? 1 : 0;
     document.documentElement.style.setProperty(
       '--header-bottom-position',
-      `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
+      `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`,
     );
     this.header.classList.add('menu-open');
 
@@ -520,7 +520,7 @@ class HeaderDrawer extends MenuDrawer {
     this.header &&
       document.documentElement.style.setProperty(
         '--header-bottom-position',
-        `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
+        `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`,
       );
     document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
   };
@@ -641,7 +641,7 @@ class SliderComponent extends HTMLElement {
     if (this.sliderItemsToShow.length < 2) return;
     this.sliderItemOffset = this.sliderItemsToShow[1].offsetLeft - this.sliderItemsToShow[0].offsetLeft;
     this.slidesPerPage = Math.floor(
-      (this.slider.clientWidth - this.sliderItemsToShow[0].offsetLeft) / this.sliderItemOffset
+      (this.slider.clientWidth - this.sliderItemsToShow[0].offsetLeft) / this.sliderItemOffset,
     );
     this.totalPages = this.sliderItemsToShow.length - this.slidesPerPage + 1;
     this.update();
@@ -672,7 +672,7 @@ class SliderComponent extends HTMLElement {
             currentPage: this.currentPage,
             currentElement: this.sliderItemsToShow[this.currentPage - 1],
           },
-        })
+        }),
       );
     }
 
@@ -745,7 +745,7 @@ class SlideshowComponent extends SliderComponent {
           () => {
             this.announcementBarArrowButtonWasClicked = true;
           },
-          { once: true }
+          { once: true },
         );
       });
     }
@@ -952,7 +952,7 @@ class VariantSelects extends HTMLElement {
 
     const mediaGalleries = document.querySelectorAll(`[id^="MediaGallery-${this.dataset.section}"]`);
     mediaGalleries.forEach((mediaGallery) =>
-      mediaGallery.setActiveMedia(`${this.dataset.section}-${this.currentVariant.featured_media.id}`, true)
+      mediaGallery.setActiveMedia(`${this.dataset.section}-${this.currentVariant.featured_media.id}`, true),
     );
 
     const modalContent = document.querySelector(`#ProductModal-${this.dataset.section} .product-media-modal__content`);
@@ -974,7 +974,7 @@ class VariantSelects extends HTMLElement {
 
   updateVariantInput() {
     const productForms = document.querySelectorAll(
-      `#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`
+      `#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`,
     );
     productForms.forEach((productForm) => {
       const input = productForm.querySelector('input[name="id"]');
@@ -985,7 +985,7 @@ class VariantSelects extends HTMLElement {
 
   updateVariantStatuses() {
     const selectedOptionOneVariants = this.variantData.filter(
-      (variant) => this.querySelector(':checked').value === variant.option1
+      (variant) => this.querySelector(':checked').value === variant.option1,
     );
     const inputWrappers = [...this.querySelectorAll('.product-form__input')];
     inputWrappers.forEach((option, index) => {
@@ -1036,7 +1036,7 @@ class VariantSelects extends HTMLElement {
     fetch(
       `${this.dataset.url}?variant=${requestedVariantId}&section_id=${
         this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
-      }`
+      }`,
     )
       .then((response) => response.text())
       .then((responseText) => {
@@ -1046,14 +1046,14 @@ class VariantSelects extends HTMLElement {
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}`);
         const source = html.getElementById(
-          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
+          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`,
         );
         const skuSource = html.getElementById(
-          `Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
+          `Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`,
         );
         const skuDestination = document.getElementById(`Sku-${this.dataset.section}`);
         const inventorySource = html.getElementById(
-          `Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
+          `Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`,
         );
         const inventoryDestination = document.getElementById(`Inventory-${this.dataset.section}`);
 
@@ -1074,7 +1074,7 @@ class VariantSelects extends HTMLElement {
         const addButtonUpdated = html.getElementById(`ProductSubmitButton-${sectionId}`);
         this.toggleAddButton(
           addButtonUpdated ? addButtonUpdated.hasAttribute('disabled') : true,
-          window.variantStrings.soldOut
+          window.variantStrings.soldOut,
         );
 
         publish(PUB_SUB_EVENTS.variantChange, {
@@ -1196,7 +1196,9 @@ class ProductRecommendations extends HTMLElement {
 customElements.define('product-recommendations', ProductRecommendations);
 
 // Open external links in new window
-let links=document.getElementsByTagName("a");for(var i=0;i<links.length;i++)if(links[i].host!==window.location.host)links[i].setAttribute("target","_blank");
+let links = document.getElementsByTagName('a');
+for (var i = 0; i < links.length; i++)
+  if (links[i].host !== window.location.host) links[i].setAttribute('target', '_blank');
 
 // Opens OneTrust when #preference-center footer link is clicked
 (function () {
