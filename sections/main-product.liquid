@@ -1,22 +1,11 @@
-{% liquid
-  assign background_color = product.metafields.custom.background_color.value
-  assign secondary_image = product.metafields.custom.secondary_product_image
-  assign footer_image = product.metafields.custom.footer_image
-  assign cereal_collection = collections.cereal.products
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+{% if section.settings.image_zoom == 'hover' %}
+  <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
+{% endif %}
 
-  for i in (0..cereal_collection.size)
-    if cereal_collection[i].handle == product.handle
-      assign previous_index = forloop.index0 | minus: 1
-      assign previous_cereal = cereal_collection[previous_index].url
-      assign next_index = forloop.index0 | plus: 1
-      if forloop.index == cereal_collection.size
-        assign next_cereal = cereal_collection[0].url
-      else
-        assign next_cereal = cereal_collection[next_index].url
-      endif
-    endif
-  endfor
-%}
+<script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
 
 {% stylesheet %}
   .product-description p {
@@ -28,28 +17,44 @@
   id="MainProduct-{{ section.id }}"
   class="text-white main-product"
   data-section="{{ section.id }}"
-  style="background: linear-gradient(to bottom, {{ background_color[0] }}, {{ background_color[1] }});"
 >
-  <div class="flex flex-row flex-nowrap items-center justify-between gap-5 max-w-1000 my-0 mx-auto px-10">
-    {% render 'arrow-left', previous_cereal: previous_cereal %}
-    <h1 class="uppercase text-white text-center font-coop text-5xl md:text-7xl py-16">Meet {{ product.title }}</h1>
-    {% render 'arrow-right', next_cereal: next_cereal %}
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-2">
-    <div class="w-4/5 mx-auto">
-      {{ product | image_url: width: 500 | image_tag }}
-    </div>
-    <div class="product-description text-white w-4/5 sm:w-11/12 mx-auto">
-      <h2 class="uppercase text-white font-coop text-6xl">Who is {{ product.title }}?</h2>
-      {{ product.description }}
-      {% if secondary_image %}
-        <aside>{{ secondary_image | image_url: width: 650 | image_tag }}</aside>
-      {% endif %}
-    </div>
-  </div>
-  {% if footer_image %}
-    {{ footer_image | image_url: width: 1400 | image_tag }}
-  {% endif %}
+  <product-info
+    id="ProductInfo-{{ section.id }}"
+    data-url="{{ product.url }}"
+  >
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          {% render block %}
+        {%- when 'text' -%}
+          <p {{ block.shopify_attributes }}>
+            {{- block.settings.text }}
+          </p>
+        {%- when 'title' -%}
+          <div {{ block.shopify_attributes }}>
+            <h1>{{ product.title | escape }}</h1>
+          </div>
+        {%- when 'price' -%}
+          <div role="status" {{ block.shopify_attributes }}>
+            {% render 'price',
+              product: product,
+              use_variant: true,
+              show_badges: true
+            %}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+    {% comment %} <div class="mt-5 grid grid-cols-1 md:grid-cols-2">
+      <div class="w-4/5 mx-auto">
+        {{ product | image_url: width: 500 | image_tag }}
+      </div>
+      <div class="product-description text-white w-4/5 sm:w-11/12 mx-auto">
+        <h1 class="uppercase text-white text-center font-coop py-8">{{ product.title }}</h1>
+        <p>{{ product.price | money_with_currency }}</p>
+        {{ product.description }}
+      </div>
+    </div> {% endcomment %}
+  </product-info>
 </section>
 
 {% schema %}
@@ -58,7 +63,30 @@
   "tag": "section",
   "class": "section",
   "blocks": [
-
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text",
+      "name": "Product Text",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Enter Product Text"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Product Title",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "Product Price",
+      "limit": 1
+    }
   ],
   "settings": [
 
