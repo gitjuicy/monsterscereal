@@ -1,24 +1,31 @@
 {
   "wrapper": "div.product",
   "sections": {
-    "71cbbf1a-b89e-4e75-800b-7aafe0798be8": {
-      "type": "image-banner",
-      "settings": {
-        "image": "{{ product.metafields.custom.hero_image.value }}",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
-    },
     "main": {
       "type": "main-product",
+      "blocks": {
+        "b0bcd8bd-c6d5-433f-be17-e1b64b145cd6": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "844f880a-fbc8-4000-a58f-572f5ecf4fcd": {
+          "type": "text",
+          "settings": {
+            "text": "A monstrously stylish hat for the quirky and cool!"
+          }
+        },
+        "254098f6-a96f-4376-ad09-d15f39711377": {
+          "type": "price",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "b0bcd8bd-c6d5-433f-be17-e1b64b145cd6",
+        "844f880a-fbc8-4000-a58f-572f5ecf4fcd",
+        "254098f6-a96f-4376-ad09-d15f39711377"
+      ],
       "settings": {
       }
     },
@@ -43,7 +50,6 @@
     }
   },
   "order": [
-    "71cbbf1a-b89e-4e75-800b-7aafe0798be8",
     "main",
     "related-products"
   ]
