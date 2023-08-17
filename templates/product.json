@@ -9,10 +9,9 @@
           "settings": {
           }
         },
-        "844f880a-fbc8-4000-a58f-572f5ecf4fcd": {
-          "type": "text",
+        "9585e747-4ce7-48e8-af50-6c619e029119": {
+          "type": "description",
           "settings": {
-            "text": "A monstrously stylish hat for the quirky and cool!"
           }
         },
         "254098f6-a96f-4376-ad09-d15f39711377": {
@@ -23,7 +22,7 @@
       },
       "block_order": [
         "b0bcd8bd-c6d5-433f-be17-e1b64b145cd6",
-        "844f880a-fbc8-4000-a58f-572f5ecf4fcd",
+        "9585e747-4ce7-48e8-af50-6c619e029119",
         "254098f6-a96f-4376-ad09-d15f39711377"
       ],
       "settings": {
