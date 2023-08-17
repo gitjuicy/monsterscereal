@@ -28,7 +28,7 @@
           {% render block %}
         {%- when 'text' -%}
           <p {{ block.shopify_attributes }}>
-            {{- block.settings.text }}
+            {{- product.description }}
           </p>
         {%- when 'title' -%}
           <div {{ block.shopify_attributes }}>
@@ -67,15 +67,9 @@
       "type": "@app"
     },
     {
-      "type": "text",
-      "name": "Product Text",
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "text",
-          "label": "Enter Product Text"
-        }
-      ]
+      "type": "description",
+      "name": "Product Description",
+      "limit": 1
     },
     {
       "type": "title",
