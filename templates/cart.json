@@ -1,4 +1,5 @@
 {
+  "wrapper": "div.bg-white.text-purple",
   "sections": {
     "cart-items": {
       "type": "main-cart-items",
