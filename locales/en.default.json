@@ -302,8 +302,8 @@
         "title": "Have an account?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in<\/a> to check out faster."
       },
-      "new_subtotal": "TODO",
-      "subtotal": "TODO"
+      "new_subtotal": "New subtotal",
+      "subtotal": "Subtotal"
     },
     "footer": {
       "payment": "Payment methods"
