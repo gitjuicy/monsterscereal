@@ -5,7 +5,29 @@
   assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
 -%}
 
-<div class="relative text-center flex flex-col items-center gap-5 pt-32 justify-center w-full min-h-full bg-gradient-to-b from-purple via-black to-green">
+<div class="relative text-center flex flex-col items-center gap-5 pt-14 md:pt-32 justify-center w-full min-h-full bg-gradient-to-b from-purple via-black to-green">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'heading' -%}
+        <h1 class="text-white font-coop text-[24px] leading-[32px] sm:text-[48px] sm:leading-none md:text-[60px] md:leading-none">
+          {{ block.settings.heading }}
+        </h1>
+      {%- when 'text' -%}
+        <p class="text-white text-center inline-block mx-auto w-4/5 md:w-4/5 font-helvetica font-bold sm:text-[18px] sm:leading-[28xp] md:text-[30px] md:leading-[36px]">
+          {{ block.settings.text }}
+        </p>
+      {%- when 'buttons' -%}
+        <div class="my-8">
+          <a
+            role="link"
+            href="{{ block.settings.button_link_1 }}"
+            class="bg-green hover:bg-green-light font-helvetica inline-block text-white font-bold text-center w-[208px] xl:w-[288px] py-[8px] rounded-full mb-8"
+          >
+            {{- block.settings.button_label_1 | escape -}}
+          </a>
+        </div>
+    {%- endcase -%}
+  {%- endfor -%}
   {%- if section.settings.image != blank -%}
     <div>
       {%- liquid
@@ -49,7 +71,47 @@
     }
   ],
   "blocks": [
-
+    {
+      "type": "heading",
+      "name": "t:sections.image-banner.blocks.heading.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "REMIX THEM ALL",
+          "label": "t:sections.image-banner.blocks.heading.settings.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.image-banner.blocks.text.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "The Monsters put up a new spin on the Monster Mash with the help of their friend Carmella Creeper. Pick up a box of Monster Mash this Halloween season.",
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.image-banner.blocks.buttons.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Button label",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
+        }
+      ]
+    }
   ],
   "presets": [
     {
