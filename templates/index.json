@@ -19,7 +19,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "MEET CARMELLA",
-            "button_link_1": "shopify://products/carmella-creeper"
+            "button_link_1": "shopify:\/\/pages\/carmella-creeper"
           }
         }
       },
@@ -29,7 +29,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/home-hero.png"
+        "image": "shopify:\/\/shop_images\/home-hero.png"
       }
     },
     "home_content": {
@@ -49,6 +49,13 @@
             "text_2": "Pick up a box of the new Monster Mash Remix featuring the newest monster in the crew, Carmilla Creeper!"
           }
         },
+        "e24e9207-99ee-4c90-b71c-d8065bc64773": {
+          "type": "text",
+          "settings": {
+            "text": "SPOOKY! LIMITED EDITION MONSTER MERCH DROPS HERE ON 10\/13!",
+            "text_2": ""
+          }
+        },
         "heading_2": {
           "type": "heading",
           "settings": {
@@ -60,10 +67,11 @@
       "block_order": [
         "heading_1",
         "text",
+        "e24e9207-99ee-4c90-b71c-d8065bc64773",
         "heading_2"
       ],
       "settings": {
-        "image": "shopify://shop_images/text-section-bg.jpg"
+        "image": "shopify:\/\/shop_images\/text-section-bg.jpg"
       }
     },
     "home_grid": {
@@ -73,8 +81,34 @@
     },
     "home_image": {
       "type": "home-image",
+      "blocks": {
+        "380a20b4-8f47-46f3-903d-ba55f922c7e0": {
+          "type": "heading",
+          "settings": {
+            "heading": "REMIX THEM ALL"
+          }
+        },
+        "ee92a29f-85fd-4e97-92df-eaf8b266b32c": {
+          "type": "text",
+          "settings": {
+            "text": "The Monsters put up a new spin on the Monster Mash with the help of their friend Carmella Creeper. Pick up a box of Monster Mash this Halloween season."
+          }
+        },
+        "32c26d9f-48ab-4f6e-bf8e-9e40af5cfb6c": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "LEARN MORE",
+            "button_link_1": "shopify:\/\/pages\/monster-mash"
+          }
+        }
+      },
+      "block_order": [
+        "380a20b4-8f47-46f3-903d-ba55f922c7e0",
+        "ee92a29f-85fd-4e97-92df-eaf8b266b32c",
+        "32c26d9f-48ab-4f6e-bf8e-9e40af5cfb6c"
+      ],
       "settings": {
-        "image": "shopify://shop_images/monster-mash-group.png"
+        "image": "shopify:\/\/shop_images\/monster-mash-group.png"
       }
     }
   },

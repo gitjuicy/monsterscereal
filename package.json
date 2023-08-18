@@ -27,6 +27,5 @@
   "lint-staged": {
     "*.{js,css}": "prettier --write"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
