@@ -18,12 +18,8 @@
     },
     "main": {
       "type": "monster",
-      "settings": {
-      }
+      "settings": {}
     }
   },
-  "order": [
-    "hero-image",
-    "main"
-  ]
+  "order": ["hero-image", "main"]
 }

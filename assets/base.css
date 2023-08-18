@@ -73,7 +73,10 @@
 
 /* base */
 
-html, a, p, li {
+html,
+a,
+p,
+li {
   font-size: 16px;
 }
 
@@ -85,7 +88,7 @@ html.no-js .no-js:not(html) {
   display: block !important;
 }
 
-.no-js-inline { 
+.no-js-inline {
   display: none !important;
 }
 
