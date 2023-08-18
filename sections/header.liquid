@@ -41,54 +41,80 @@
   <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-{% liquid
-  assign monster_urls = "/pages/carmella-creeper /pages/franken-berry /pages/boo-berry /pages/count-chocula" | split: ' '
-%}
-
-<div
-  class="z-10 relative h-[144px] md:h-[176px] bg-inherit 2xl:bg-contain bg-size-100 bg-fixed flex flex-col items-center p-[24px] md:p-[32px] lg:p-[48px] backdrop-blur-lg w-full leading-none antialiased"
+<nav
+  class="z-10 relative h-[144px] md:h-[176px] bg-inherit 2xl:bg-contain bg-size-100 bg-fixed flex flex-col items-center lg:p-[48px] backdrop-blur-lg w-full leading-none antialiased"
   style="background: url({{ 'header-bg.jpg' | asset_url }})"
 >
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'image_picker' %}
-        {{
-          block.settings.header_image
-          | image_url: width: 230
-          | image_tag: class: 'md:max-w-240 hover:scale-125'
-          | link_to: block.settings.header_image__link,
-            class: 'w-[144px] md:w-[160px] top-[12px] absolute flex justify-center'
-        }}
+      {{
+        block.settings.header_image
+        | image_url: width: 230
+        | image_tag: class: 'md:max-w-240 hover:scale-125'
+        | link_to: block.settings.header_image__link,
+        class: 'w-[144px] md:w-[160px]  top-[20%] md:top-[12px] absolute flex justify-center'
+      }}
       {% when 'link_list' %}
-        <ul class="flex absolute bottom-0 translate-y-1/2 items-center gap-[12px] sm:gap-[48px]" role="list">
-          {% for link in block.settings.menu.links %}
-            <li class="uppercase" role="listitem">
-              {% assign logo_image = '' %}
-              {% if link.handle == 'carmella-creeper' %}
-                {% assign logo_image = pages[link.handle].metafields.custom.alternate_logo %}
-                 <a href="/pages/{{ link.handle }}">
+      <!-- Mobile menu -->
+      <div class="block md:hidden w-full">
+        <img src="{{ 'hamburger.png' | asset_url }}"
+          alt="Menu"
+          class="hamburger fixed top-8 right-8"
+          width="40"
+          height="40" 
+          role="button"
+          loading="eager">
+          <div class="hidden mobile-menu bg-gradient-to-b from-purple to-black flex flex-col min-h-screen">
+            <ul class="flex flex-col gap-2 mt-32 mx-auto" role="list">
+              {% for link in block.settings.menu.links %}
+                <li class="uppercase font-coop text-white text-center" role="listitem">
+                  {% for product in collections.all.products %}
+                    {% if product.handle == link.handle %}
+                        {{ product.title | link_to: product.url, class: 'text-4xl' }}
+                    {% endif %}
+                  {% endfor %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+      </div>
+      <!-- Desktop menu -->
+      <ul class="hidden md:flex absolute bottom-0 translate-y-1/2 items-center gap-[12px] sm:gap-[48px]" role="list">
+        {% for link in block.settings.menu.links %}
+          <li class="uppercase" role="listitem">
+            {% for product in collections.all.products %}
+              {% if product.handle == link.handle %}
+                {% if product.handle == 'carmella-creeper' %}
                   {{
-                  logo_image
+                    product.metafields.custom.logo_2
                     | image_url: width: 140
                     | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px] pb-[20px]'
+                    | link_to: product.url
                   }}
-                </a>
-              {% else %}
-                {% assign logo_image = pages[link.handle].metafields.custom.logo %}
-                <a href="/pages/{{ link.handle }}">
+                {% else %}
                   {{
-                    logo_image
+                    product.metafields.custom.logo
                     | image_url: width: 140
                     | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[140px]'
+                    | link_to: product.url
                   }}
-                </a>
+                {% endif %}
               {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
+            {% endfor %}
+          </li>
+        {% endfor %}
+      </ul>
     {% endcase %}
   {% endfor %}
-</div>
+</nav>
+
+<script type="text/javascript" async>
+  const hamburger = document.querySelector('.hamburger');
+  hamburger.addEventListener('click', () => {
+    document.querySelector('.mobile-menu').classList.toggle('hidden');
+  });
+</script>
 
 {% schema %}
 {
