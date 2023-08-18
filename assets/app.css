@@ -934,10 +934,6 @@ video {
   width: 33.333333%;
 }
 
-.w-10 {
-  width: 2.5rem;
-}
-
 .w-4 {
   width: 1rem;
 }
@@ -964,6 +960,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .min-w-200 {
@@ -1530,6 +1530,11 @@ video {
 
 .gap-10 {
   gap: 2.5rem;
+}
+
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2351,6 +2356,11 @@ video {
   font-family: Helvetica Neue;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -2389,6 +2399,11 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
 }
 
 .font-bold {

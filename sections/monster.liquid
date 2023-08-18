@@ -26,6 +26,13 @@
 {% stylesheet %}
   .product-description p {
     padding: 0.5rem 0;
+    letter-spacing: initial;
+    font-weight: 700;
+    font-family: system-ui;
+  }
+
+  .product-description p strong {
+    font-weight: bolder;
   }
 {% endstylesheet %}
 
@@ -47,7 +54,9 @@
       {% endif %}
     </div>
     <div class="product-description text-white w-4/5 sm:w-11/12 mx-auto">
-      <h2 class="uppercase text-white font-coop text-6xl">Who is {{ page.title }}?</h2>
+      <h2 class="uppercase text-white font-coop text-4xl">
+        {% if page.title == 'Monster Mash' %}What{% else %}Who{% endif %} is {{ page.title }}?
+      </h2>
       {{ page.content }}
       {% if secondary_image %}
         <aside>{{ secondary_image | image_url: width: 650 | image_tag }}</aside>
