@@ -4,7 +4,7 @@
   assign secondary_image = page.metafields.custom.secondary_image
   assign footer_image = page.metafields.custom.footer_image
 
-  assign monster_urls = "carmella-creeper franken-berry boo-berry count-chocula" | split: ' '
+  assign monster_urls = "carmella-creeper franken-berry boo-berry count-chocula monster-mash" | split: ' '
 
   for monster_url in monster_urls
     assign relative_url_parts = monster_url | split: '/'
