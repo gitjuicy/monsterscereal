@@ -767,12 +767,24 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
 .mt-\[50px\] {
   margin-top: 50px;
 }
 
 .mt-32 {
   margin-top: 8rem;
+}
+
+.mt-40 {
+  margin-top: 10rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .box-border {
@@ -1512,9 +1524,14 @@ video {
   gap: 12px;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-10 {
   gap: 2.5rem;
 }
+
 
 .gap-2 {
   gap: 0.5rem;
@@ -2379,6 +2396,11 @@ video {
   line-height: 2rem;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .text-7xl {
   font-size: 4.5rem;
   line-height: 1;
@@ -3015,6 +3037,10 @@ video {
 
   .md\:mt-\[100px\] {
     margin-top: 100px;
+  }
+
+  .md\:mt-40 {
+    margin-top: 10rem;
   }
 
   .md\:flex {
