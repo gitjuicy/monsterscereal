@@ -40,7 +40,7 @@
           "settings": {
             "heading": "WE'RE BACK",
             "grid_heading": false,
-            "text_color": "#ffffff"
+            "text_color": "#fff"
           }
         },
         "text": {
@@ -50,7 +50,7 @@
             "text_2": "Pick up a box of the new Monster Mash Remix featuring the newest monster in the crew, Carmilla Creeper!"
           }
         },
-        "657252dc-a31a-4f7b-9b71-89861a16fdde": {
+        "heading_2": {
           "type": "heading",
           "settings": {
             "heading": "SPOOKY! LIMITED EDITION MONSTER MERCH DROPS HERE ON 10\/13!",
@@ -62,7 +62,7 @@
       "block_order": [
         "heading_1",
         "text",
-        "657252dc-a31a-4f7b-9b71-89861a16fdde"
+        "heading_2"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/text-section-bg.jpg"
@@ -70,20 +70,9 @@
     },
     "home_grid": {
       "type": "home-grid",
-      "blocks": {
-        "952e4c44-771b-4b00-8919-8eef0555ace3": {
-          "type": "heading",
-          "settings": {
-            "heading": "MEET THE MONSTERS",
-            "grid_heading": false,
-            "text_color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "952e4c44-771b-4b00-8919-8eef0555ace3"
-      ],
       "settings": {
+        "heading": "MEET THE MONSTERS",
+        "text_color": "#fff"
       }
     },
     "home_image": {
