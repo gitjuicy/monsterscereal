@@ -40,7 +40,7 @@
           "settings": {
             "heading": "WE'RE BACK",
             "grid_heading": false,
-            "text_color": "#fff"
+            "text_color": "#ffffff"
           }
         },
         "text": {
@@ -52,6 +52,7 @@
         },
         "heading_2": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "SPOOKY! LIMITED EDITION MONSTER MERCH DROPS HERE ON 10\/13!",
             "grid_heading": true,
@@ -72,7 +73,7 @@
       "type": "home-grid",
       "settings": {
         "heading": "MEET THE MONSTERS",
-        "text_color": "#fff"
+        "text_color": "#ffffff"
       }
     },
     "home_image": {
