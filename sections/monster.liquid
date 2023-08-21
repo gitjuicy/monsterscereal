@@ -34,8 +34,21 @@
   .product-description p strong {
     font-weight: bolder;
   }
+
+  #pear-pdp-target input::placeholder {
+    color: #fff;
+    opacity: 1;
+  }
+
+  #pear-pdp-target .retailer-button {
+    display: flex;
+    align-items: center;
+  }
+
+  #pear-pdp-target .retailer-discription {
+    display: flex;
+  }
 {% endstylesheet %}
-<script src="http://offers.pearcommerce.com/js/sdk/monster-cereal-pdp.js" defer></script>
 
 <section
   id="Monster-{{ section.id }}"
@@ -61,7 +74,7 @@
       {{ page.content }}
       <div class="mt-8">
         <h2 class="uppercase text-white font-coop text-4xl">Find {{ page.title }} near you!</h2>
-        <div id="pear-pdp-target">
+        <div id="pear-pdp-target mt-4">
 
         </div>
       </div>
