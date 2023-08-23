@@ -19,9 +19,8 @@
     "@shopify/prettier-plugin-liquid": "^1.2.2",
     "autoprefixer": "^10.4.4",
     "concurrently": "^8.2.0",
-    "husky": "^7.0.4",
     "postcss": "^8.4.12",
-    "prettier": "^3.0.0",
+    "prettier": "^3.0.1",
     "tailwindcss": "^3.0.24"
   },
   "lint-staged": {
