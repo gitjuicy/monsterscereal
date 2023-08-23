@@ -23,6 +23,9 @@
   endfor
 %}
 
+<!-- Pear PDP script. It has to go in this file -->
+<script src="http://offers.pearcommerce.com/js/sdk/monster-cereal-pdp.js" defer></script>
+
 <style>
   .product-description p {
     padding: 0.5rem 0;
@@ -74,21 +77,6 @@
     {{ footer_image | image_url: width: 1400 | image_tag }}
   {% endif %}
 </section>
-
-<!-- Pear PDP script. It has to go in this file -->
-<script src="http://offers.pearcommerce.com/js/sdk/monster-cereal-pdp.js" async></script>
-<!-- Stylesheet will not work, CSS has to be set after Pear widget has loaded -->
-<script async>
-  const pearInputPlaceholder = document.querySelector('#pear-app-content input::placeholder');
-  const retailerBtn = document.querySelector('#pear-app-content .retailer-button');
-  const retailerDesc = document.querySelector('#pear-app-content .retailer-description');
-
-  pearInputPlaceholder.style.color = '#FFF';
-  pearInputPlaceholder.style.opacity = '1.0';
-  retailerBtn.style.display = 'flex'''
-  retailerBtn.style.setAttribute('align-items', 'center');
-  retailerDesc.style.display = 'flex';
-</script>
 
 {% schema %}
 {
