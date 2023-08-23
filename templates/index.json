@@ -79,6 +79,7 @@
     "music-visualizer": {
       "type": "music-visualizer",
       "settings": {
+        "enabled": true
       }
     },
     "home_image": {
