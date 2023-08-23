@@ -77,7 +77,6 @@
     },
     "music-visualizer": {
       "type": "music-visualizer",
-      "disabled": true,
       "settings": {
         "enabled": true
       }
