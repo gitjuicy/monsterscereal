@@ -780,12 +780,20 @@ video {
   margin-top: 0px;
 }
 
+.mt-12 {
+  margin-top: 3rem;
+}
+
 .mt-16 {
   margin-top: 4rem;
 }
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-28 {
+  margin-top: 7rem;
 }
 
 .mt-32 {
@@ -2281,6 +2289,10 @@ video {
   padding-bottom: 80px;
 }
 
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
 .pt-0 {
   padding-top: 0px;
 }
@@ -2377,6 +2389,11 @@ video {
 
 .text-5xl {
   font-size: 3rem;
+  line-height: 1;
+}
+
+.text-8xl {
+  font-size: 6rem;
   line-height: 1;
 }
 
@@ -3077,6 +3094,10 @@ video {
 
   .md\:max-w-\[120px\] {
     max-width: 120px;
+  }
+
+  .md\:max-w-\[500px\] {
+    max-width: 500px;
   }
 
   .md\:grid-cols-2 {
