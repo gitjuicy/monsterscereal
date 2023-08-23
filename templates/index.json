@@ -76,6 +76,11 @@
         "text_color": "#ffffff"
       }
     },
+    "music-visualizer": {
+      "type": "music-visualizer",
+      "settings": {
+      }
+    },
     "home_image": {
       "type": "home-image",
       "blocks": {
@@ -113,6 +118,7 @@
     "home_hero",
     "home_content",
     "home_grid",
+    "music-visualizer",
     "home_image"
   ]
 }
