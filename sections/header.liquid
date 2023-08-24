@@ -42,8 +42,8 @@
 {%- endif -%}
 
 <nav
-  class="z-10 relative h-[144px] md:h-[176px] bg-inherit 2xl:bg-contain bg-size-100 bg-fixed flex flex-col items-center lg:p-[48px] backdrop-blur-lg w-full leading-none antialiased"
-  style="background: url({{ 'header-bg.jpg' | asset_url }})"
+  class="z-10 relative h-[144px] md:h-[176px] bg-inherit 2xl:bg-contain bg-size-100 bg-fixed flex flex-col items-center backdrop-blur-lg w-full leading-none antialiased"
+  style="background: url({{ 'header-bg.jpg' | asset_url }}); background-repeat: no-repeat; background-size: cover;"
 >
   {% for block in section.blocks %}
     {% case block.type %}
@@ -53,7 +53,7 @@
         | image_url: width: 230
         | image_tag: class: 'md:max-w-240 hover:scale-125'
         | link_to: block.settings.header_image__link,
-        class: 'w-[144px] md:w-[160px]  top-[20%] md:top-[12px] absolute flex justify-center'
+        class: 'w-[144px] md:w-[160px] top-[20%] md:top-[12px] absolute flex justify-center'
       }}
       {% when 'link_list' %}
       <!-- Desktop menu -->
@@ -63,16 +63,16 @@
             {% assign logo_image = '' %}
             {% if link.handle == 'carmella-creeper' %}
               {% assign logo_image = pages[link.handle].metafields.custom.alternate_logo %}
-                <a href="/pages/{{ link.handle }}">
+                <a href="/pages/{{ link.handle }}" class="block">
                 {{
                   logo_image
                   | image_url: width: 140
-                  | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[120px] lg:max-w-[140px] pb-[20px]'
+                  | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[120px] lg:max-w-[140px] pb-[35px]'
                 }}
               </a>
             {% else %}
               {% assign logo_image = pages[link.handle].metafields.custom.logo %}
-              <a href="/pages/{{ link.handle }}">
+              <a href="/pages/{{ link.handle }}" class="block">
                 {{
                   logo_image
                   | image_url: width: 140
@@ -84,15 +84,31 @@
         {% endfor %}
       </ul>
       <!-- Mobile menu -->
-      <div class="block md:hidden w-full">
+      <div class="block w-full z-[1] relative">
         <img src="{{ 'hamburger.png' | asset_url }}"
           alt="Menu"
           class="hamburger fixed top-8 right-8"
           width="40"
           height="40" 
           role="button"
+          tabindex="0"
+          aria-expanded="false"
           loading="eager">
           <div class="hidden mobile-menu bg-gradient-to-b from-purple to-black flex flex-col min-h-screen">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'image_picker' %}
+                <div class="flex justify-center">
+                  {{
+                    block.settings.header_image
+                    | image_url: width: 230
+                    | image_tag: class: 'md:max-w-240 hover:scale-125'
+                    | link_to: block.settings.header_image__link,
+                    class: 'w-[144px] md:w-[160px] top-[29px] md:top-[12px] absolute flex justify-center'
+                  }}
+                </div>
+                {% endcase %}
+              {% endfor %}
             <ul class="flex flex-col gap-2 mt-32 mx-auto" role="list">
               {% for link in block.settings.menu.links %}
                 <li class="uppercase font-coop text-white text-center" role="listitem">
@@ -110,9 +126,39 @@
 
 <script type="text/javascript" async>
   const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  
   hamburger.addEventListener('click', () => {
-    document.querySelector('.mobile-menu').classList.toggle('hidden');
+    mobileMenu.classList.toggle('hidden');
+    hamburger.setAttribute(
+      'aria-expanded', 
+      hamburger.getAttribute('aria-expanded') !== 'true'
+    );
   });
+  
+  // ADA-compliance 
+  const lastLi = mobileMenu.querySelector('li:last-child > a'); 
+  
+  hamburger.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      hamburger.click();
+    }
+  });
+  
+  lastLi.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && !e.shiftKey) {
+      e.preventDefault();
+      hamburger.focus();
+    }
+  });
+  
+  hamburger.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && e.shiftKey && !mobileMenu.classList.contains('hidden')) {
+      e.preventDefault();
+      lastLi.focus();
+    }
+  });  
 </script>
 
 {% schema %}
