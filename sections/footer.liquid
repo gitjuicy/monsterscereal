@@ -37,7 +37,8 @@
               block.settings.footer_image
               | image_url: width: 150
               | image_tag
-              | link_to: block.settings.footer_image__link
+              | link_to: block.settings.footer_image__link,
+              class: 'block'
             }}
           </div>
       {% endcase %}

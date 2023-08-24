@@ -52,9 +52,8 @@
         },
         "heading_2": {
           "type": "heading",
-          "disabled": true,
           "settings": {
-            "heading": "SPOOKY SEASON IS HERE!LIMITED EDITION MONSTER MERCH DROPS HERE ON 10\/13!",
+            "heading": "SPOOKY SEASON IS HERE! LIMITED EDITION MONSTER MERCH DROPS HERE ON 10\/13!",
             "grid_heading": true,
             "text_color": "#ffff00"
           }
