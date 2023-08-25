@@ -140,7 +140,8 @@
           "header": {
             "type": "link_list",
             "settings": {
-              "menu": "header-menu"
+              "menu": "header-menu",
+              "hamburger-menu": "header-menu-hamburger"
             }
           }
         },
@@ -157,7 +158,8 @@
           "69ea7db2-9062-477a-8391-d473152231d1": {
             "type": "image_picker",
             "settings": {
-              "footer_image": "shopify:\/\/shop_images\/monsters-cereal-logo.png"
+              "footer_image": "shopify:\/\/shop_images\/monsters-cereal-logo.png",
+              "footer_image__link": "\/"
             }
           },
           "f05e040a-e65d-4892-9a7c-20ceacb5234a": {
