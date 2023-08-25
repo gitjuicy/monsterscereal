@@ -2432,6 +2432,25 @@ video {
   font-size: 48px;
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-\[52px\] {
+  font-size: 52px;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -3131,10 +3150,6 @@ video {
     gap: 0px;
   }
 
-  .md\:bg-repeat-round {
-    background-repeat: round;
-  }
-
   .md\:py-\[64px\] {
     padding-top: 64px;
     padding-bottom: 64px;
@@ -3167,6 +3182,40 @@ video {
 
   .md\:text-\[60px\] {
     font-size: 60px;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-\[70px\] {
+    font-size: 70px;
+  }
+
+  .md\:text-\[36px\] {
+    font-size: 36px;
+  }
+
+  .md\:text-\[32px\] {
+    font-size: 32px;
+  }
+
+  .md\:text-\[54px\] {
+    font-size: 54px;
+  }
+
+  .md\:text-\[52px\] {
+    font-size: 52px;
+  }
+
+  .md\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .md\:text-\[40px\] {
+    font-size: 40px;
   }
 
   .md\:leading-\[36px\] {

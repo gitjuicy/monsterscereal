@@ -2,7 +2,7 @@
   assign monster_urls = "carmella-creeper franken-berry boo-berry count-chocula" | split: ' '
 %}
 
-<h3 class="font-coop text-[48px] leading-none text-center py-10" style="color: {{ section.settings.text_color }}">{{ section.settings.heading }}</h3>
+<h3 class="font-coop text-[36px] md:text-[52px] leading-none text-center py-10" style="color: {{ section.settings.text_color }}">{{ section.settings.heading }}</h3>
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-center items-stretch w-full h-full">
   {%- for monster_url in monster_urls -%}
     {% capture cardStyle %}

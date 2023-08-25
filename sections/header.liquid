@@ -112,7 +112,7 @@
             <ul class="flex flex-col gap-2 mt-32 mx-auto" role="list">
               {% for link in block.settings.menu.links %}
                 <li class="uppercase font-coop text-white text-center" role="listitem">
-                  <a class="text-4xl" href="/pages/{{ link.handle }}">
+                  <a class="text-3xl md:text-5xl" href="/pages/{{ link.handle }}">
                     {{ link.title }}
                   </a>
                 </li>
@@ -127,9 +127,13 @@
 <script type="text/javascript" async>
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
+
+  let menuOpen = false
   
   hamburger.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
+    menuOpen = !menuOpen;
+    hamburger.src = menuOpen ? '{{ 'hamburger-close.png' | asset_url }}' : '{{ 'hamburger.png' | asset_url }}';
     hamburger.setAttribute(
       'aria-expanded', 
       hamburger.getAttribute('aria-expanded') !== 'true'

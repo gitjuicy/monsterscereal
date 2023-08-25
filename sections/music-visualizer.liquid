@@ -1,9 +1,9 @@
 {% if section.settings.enabled %}
   <div class="mt-12 uppercase text-center flex flex-col font-coop py-8 bg-purple">
-    <p class="text-white text-8xl">Listen to the Monster Mash Remix</p>
+    <p class="text-white text-4xl md:text-8xl">Listen to the Monster Mash Remix</p>
     <button id="playBtn" class="justify-center flex items-center pt-10" data-playing="false" role="switch" aria-checked="false">
       <img id="visualizer_btn" src="{{ 'play.png' | asset_img_url }}" alt="Toggle play and pause" width="75" height="75" loading="lazy">
-      <span class="text-white text-5xl pl-10">MONSTER MASH REMIX</span>
+      <span class="text-white text-3xl md:text-5xl pl-10">MONSTER MASH REMIX</span>
     </button>
     <div class="mt-10 flex items-center flex-col">
       <div class="w-full md:max-w-[500px]" id="waveform"></div>

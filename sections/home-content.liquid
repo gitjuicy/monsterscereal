@@ -14,11 +14,11 @@
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'heading' -%}
-        <h2 class="{% if block.settings.grid_heading == false %}pt-[80px]{% else %}pb-[80px]{% endif %} mx-auto w-4/5 md:w-3/5 font-coop text-[34px] md:text-[48px] leading-none" style="color: {{ block.settings. text_color }}">
+        <h2 class="{% if block.settings.grid_heading == false %}pt-[80px]{% else %}pb-[80px]{% endif %} mx-auto w-4/5 md:w-3/5 font-coop text-[34px] md:text-[60px] leading-none" style="color: {{ block.settings. text_color }}">
           {{ block.settings.heading }}
         </h2>
       {%- when 'text' -%}
-        <p class="pt-[12px] pb-[80px] font-helvetica font-bold text-[18px] leading-[28px] text-white">
+        <p class="pt-[12px] pb-[80px] font-helvetica font-bold text-[24px] leading-[28px] text-white">
           {{ block.settings.text }}
           <br aria-hidden="true">
           <span class="inline-block mx-auto w-4/5 md:w-3/5">
