@@ -53,7 +53,15 @@
         "heading_2": {
           "type": "heading",
           "settings": {
-            "heading": "SPOOKY SEASON IS HERE! LIMITED EDITION MONSTER MERCH DROPS HERE ON 10\/13!",
+            "heading": "SPOOKY SEASON IS HERE!",
+            "grid_heading": false,
+            "text_color": "#ffff00"
+          }
+        },
+        "93e193ab-4b18-450a-9fb4-cba9b4982a09": {
+          "type": "heading",
+          "settings": {
+            "heading": "LIMITED EDITION MONSTER MERCH DROPS HERE ON 10\/13!",
             "grid_heading": true,
             "text_color": "#ffff00"
           }
@@ -62,7 +70,8 @@
       "block_order": [
         "heading_1",
         "text",
-        "heading_2"
+        "heading_2",
+        "93e193ab-4b18-450a-9fb4-cba9b4982a09"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/text-section-bg.jpg"
