@@ -111,7 +111,7 @@
                 {% endcase %}
               {% endfor %}
             <ul class="flex flex-col gap-2 mt-32 mx-auto" role="list">
-              {% for link in block.settings.menu.links %}
+              {% for link in block.settings.hamburger-menu.links %}
                 <li class="uppercase font-coop text-white text-center" role="listitem">
                   <a class="text-3xl md:text-5xl" href="/pages/{{ link.handle }}">
                     {{ link.title }}
@@ -173,12 +173,17 @@
   "blocks": [
     {
       "type": "link_list",
-      "name": "Footer menu",
+      "name": "Header Menu",
       "settings": [
         {
           "id": "menu",
           "type": "link_list",
-          "label": "Footer link"
+          "label": "Header Linklist"
+        },
+        {
+          "id": "hamburger-menu",
+          "type": "link_list",
+          "label": "Hamburger Linklist"
         }
       ]
     },
