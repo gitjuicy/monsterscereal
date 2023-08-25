@@ -99,13 +99,14 @@
               {% case block.type %}
                 {% when 'image_picker' %}
                 <div class="flex justify-center">
-                  {{
-                    block.settings.header_image
-                    | image_url: width: 230
-                    | image_tag: class: 'md:max-w-240 hover:scale-125'
-                    | link_to: block.settings.header_image__link,
-                    class: 'w-[144px] md:w-[160px] top-[29px] md:top-[12px] absolute flex justify-center'
-                  }}
+                  <div class="top-[29px] md:top-[12px] absolute flex justify-center'">
+                    {{
+                      block.settings.header_image
+                      | image_url: width: 230
+                      | image_tag: class: 'md:max-w-240 hover:scale-125',
+                      class: 'w-[144px] md:w-[230px]', aria-hidden: 'true'
+                    }}
+                  </div>
                 </div>
                 {% endcase %}
               {% endfor %}
