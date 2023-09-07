@@ -2,12 +2,44 @@
   <div class="mt-12 uppercase text-center flex flex-col font-coop py-8 bg-purple">
     <p class="text-white text-4xl md:text-8xl">Listen to the Monster Mash Remix</p>
     <button id="playBtn" class="justify-center flex items-center pt-10" data-playing="false" role="switch" aria-checked="false">
-      <img id="visualizer_btn" src="{{ 'play.png' | asset_img_url }}" alt="Toggle play and pause" width="75" height="75" loading="lazy">
+      <img id="visualizer_btn" src="{{ 'play.png' | asset_url }}" alt="Toggle play and pause" width="75" height="75" loading="lazy">
       <span class="text-white text-3xl md:text-5xl pl-10">MONSTER MASH REMIX</span>
     </button>
     <div class="mt-10 flex items-center flex-col">
       <div class="w-full md:max-w-[500px]" id="waveform"></div>
     </div>
+    <ul class="mt-10 flex items-center flex-col md:flex-row justify-center gap-10">
+      <li>
+        <figure>
+          <a href="https://music.apple.com/us/album/monster-mash-remix-single/1702124196" target="_blank">
+            <img
+              src="{{ 'US-UK_Apple_Music_Listen_on_Badge_RGB_072720.png' | asset_url }}"
+              alt=""
+              aria-hidden="true"
+              width="200"
+              height="100"
+              loading="lazy"
+            />
+            <figcaption class="sr-only">Apple Music link to Monster Mash song</figcaption>
+          </a>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <a href="https://music.apple.com/us/album/monster-mash-remix-single/1702124196" target="_blank">
+            <img
+              src="{{ 'Spotify_Logo_RGB_Green.png' | asset_url }}"
+              alt=""
+              aria-hidden="true"
+              width="200"
+              height="100"
+              loading="lazy"
+            />
+            <figcaption class="sr-only">Spotify link to Monster Mash song</figcaption>
+          </a>
+        </figure>
+      </li>
+    </ul>
   </div>
 {% endif %}
 
@@ -34,10 +66,10 @@
     playBtn.addEventListener("click", function() {
       if (!wavesurfer.isPlaying()) {
         wavesurfer.play();
-        playBtnImg.src = "{{ 'pause.png' | asset_img_url }}"
+        playBtnImg.src = "{{ 'pause.png' | asset_url }}"
       } else {
         wavesurfer.pause();
-        playBtnImg.src = "{{ 'play.png' | asset_img_url }}" 
+        playBtnImg.src = "{{ 'play.png' | asset_url }}" 
       }
     });
   });

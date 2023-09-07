@@ -656,14 +656,6 @@ video {
   inset-inline-end: 0.25rem;
 }
 
-.end-2 {
-  inset-inline-end: 0.5rem;
-}
-
-.end-7 {
-  inset-inline-end: 1.75rem;
-}
-
 .left-0 {
   left: 0px;
 }
@@ -1559,6 +1551,10 @@ video {
 
 .gap-\[12px\] {
   gap: 12px;
+}
+
+.gap-10 {
+  gap: 2.5rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -3125,6 +3121,10 @@ video {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:justify-around {
