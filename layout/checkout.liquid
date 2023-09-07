@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0"
+    >
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+  </head>
+
+  <body>
+    {{ skip_to_content_link }}
+
+    <header class="banner" data-header role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header>
+
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </header>
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+          </main>
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    {{ tracking_code }}
+
+    <script>
+      // Checkboxes
+      setInterval(function () {
+        var fieldset = document.querySelector('.fieldset-description');
+        if (fieldset) {
+          var addressFields = document.querySelector('.address-fields');
+          fieldset.className = 'field field--show-floating-label';
+          addressFields.parentNode.insertBefore(fieldset, addressFields.nextSibling);
+          fieldset.querySelector('label[for=checkout_buyer_accepts_marketing]').innerHTML = '';
+          var checkbox = document.createElement('div');
+          checkbox.innerHTML =
+            '<div class="field field--show-floating-label" data-buyer-accepts-marketing="">' +
+            '<div class="section__content">' +
+            '  <div class="checkbox-wrapper">' +
+            '    <div class="checkbox__input">' +
+            '      <input name="checkout[attributes][share_with_gm]" type="hidden" value="0" autocomplete="off"><input class="input-checkbox" data-backup="X" type="checkbox" value="1" name="checkout[attributes][share_with_gm]" id="checkout_share_with_gm" required>' +
+            '    </div>' +
+            '    <label class="checkbox__label" for="checkout_share_with_gm">I accept the General Mills <a href="https://www.generalmills.com/privacy-security/us-english-privacy-policy" target="_blank">Privacy Policy</a> and agree that my information may be used across the General Mills <a href="https://www.generalmills.com/food-we-make/brands" target="_blank">family of brands</a>. I also agree to the <a href="https://www.generalmills.com/privacy-security/legal-terms/us-english-terms-of-use" target="_blank">Terms of Sale</a> and the <a href="/pages/shipping-policy" target="_blank">Shipping</a> and <a href="/pages/return-policy" target="_blank">Returns</a> policies and understand that Monsters Cereal may send me emails relating to this specific purchase. <em>(Required)</em></label></div>' +
+            '    <!--p style="margin-left: 28.5px;">By continuing, you agree to our <a href="https://www.generalmills.com/en/Company/privacy-policies/privacy-policy-cookie-US-English" target="_blank">Privacy Policy</a> and <a href="https://www.generalmills.com/en/Company/legal-terms" target="_blank">Terms</a>. All transactions are subject to our <a href="/pages/shipping-policy" target="_blank">Shipping</a> and <a href="/pages/return-policy" target="_blank">Return policies</a>.</p-->' +
+            '  </div>' +
+            '</div>';
+          addressFields.parentNode.insertBefore(checkbox, fieldset);
+          document.querySelector("input[name='checkout[remember_me]']").closest('.field').style.display = 'none';
+          document.getElementById('checkout_buyer_accepts_marketing').style.display = 'none';
+          document.getElementById('checkout_share_with_gm').checked = false; //{% if checkout.attributes.share_with_gm == '0' %}false{% else %}true{% endif %};
+          document.querySelector('form.edit_checkout').removeAttribute('novalidate');
+        }
+      }, 250);
+    </script>
+  </body>
+</html>
