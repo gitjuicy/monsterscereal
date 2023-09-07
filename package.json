@@ -5,7 +5,7 @@
     "build:dev": "npx tailwindcss -i ./assets/app-tailwind.css -o ./assets/app.css --watch",
     "login": "shopify theme dev --store https://monsters-cereals.myshopify.com/",
     "pull-settings": "shopify theme pull --nodelete -o templates/*.json config/settings_data.json",
-    "pull-merch": "shopify theme pull --nodelete -o templates/*.json config/settings_data.json locales/*.json",
+    "pull-merch": "shopify theme pull --nodelete -o templates/*.json config/settings_data.json",
     "concurrently:dev": "concurrently \"yarn run login\" \"yarn run build:dev\"",
     "dev": "yarn run login & yarn run build:dev",
     "lint:prettier": "npx prettier .",
