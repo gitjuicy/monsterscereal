@@ -61,14 +61,7 @@
 
 .contains-media,
 .global-media-settings {
-  --border-radius: var(--media-radius);
-  --border-width: var(--media-border-width);
-  --border-opacity: var(--media-border-opacity);
-  --shadow-horizontal-offset: var(--media-shadow-horizontal-offset);
-  --shadow-vertical-offset: var(--media-shadow-vertical-offset);
-  --shadow-blur-radius: var(--media-shadow-blur-radius);
-  --shadow-opacity: var(--media-shadow-opacity);
-  --shadow-visible: var(--media-shadow-visible);
+  border: none;
 }
 
 /* base */
@@ -1017,13 +1010,18 @@ button.shopify-payment-button__button--unbranded {
   padding: 0 3rem;
   cursor: pointer;
   font: inherit;
+  font-weight: bold;
   font-size: 1.5rem;
   text-decoration: none;
   color: rgb(var(--color-button-text));
   transition: box-shadow var(--duration-short) ease;
   -webkit-appearance: none;
   appearance: none;
+  border-color: rgba(var(--color-button), var(--alpha-button-background));
   background-color: rgba(var(--color-button), var(--alpha-button-background));
+  border-radius: var(--badge-corner-radius);
+  text-transform: uppercase;
+  --border-offset: 0;
 }
 
 .button:before,
@@ -1669,10 +1667,10 @@ input[type='checkbox'] {
 .quantity {
   color: rgba(var(--color-foreground));
   position: relative;
-  width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+  width: calc(13rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
   display: flex;
   border-radius: var(--inputs-radius);
-  min-height: calc((var(--inputs-border-width) * 2) + 4.5rem);
+  min-height: calc((var(--inputs-border-width) * 2) + 3.5rem);
 }
 
 .quantity:after {
@@ -2645,6 +2643,8 @@ details-disclosure > details {
   border-radius: var(--badge-corner-radius);
   display: inline-block;
   font-size: 1.2rem;
+  font-family: var(--font-body-family);
+  font-weight: bold;
   letter-spacing: 0.1rem;
   line-height: 1;
   padding: 0.5rem 1.3rem 0.6rem 1.3rem;
@@ -2653,6 +2653,7 @@ details-disclosure > details {
   border-color: rgba(var(--color-badge-border), var(--alpha-badge-border));
   color: rgb(var(--color-badge-foreground));
   word-break: break-word;
+  text-transform: uppercase;
 }
 
 .gradient {

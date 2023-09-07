@@ -19,7 +19,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "MEET CARMELLA",
-            "button_link_1": "shopify:\/\/pages\/carmella-creeper"
+            "button_link_1": "shopify://pages/carmella-creeper"
           }
         }
       },
@@ -29,7 +29,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/home-hero.png"
+        "image": "shopify://shop_images/home-hero.png"
       }
     },
     "home_content": {
@@ -61,7 +61,7 @@
         "601a4da5-447d-49a9-ad9e-0c9aa3a67d63": {
           "type": "heading",
           "settings": {
-            "heading": "LIMITED EDITION MONSTER MERCH DROPS HERE ON 10\/13!",
+            "heading": "LIMITED EDITION MONSTER MERCH DROPS HERE ON 10/13!",
             "grid_heading": true,
             "text_color": "#ffff00"
           }
@@ -74,7 +74,7 @@
         "601a4da5-447d-49a9-ad9e-0c9aa3a67d63"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/text-section-bg.jpg"
+        "image": "shopify://shop_images/text-section-bg.jpg"
       }
     },
     "home_grid": {
@@ -109,7 +109,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "LEARN MORE",
-            "button_link_1": "shopify:\/\/pages\/monster-mash-remix"
+            "button_link_1": "shopify://pages/monster-mash-remix"
           }
         }
       },
@@ -119,7 +119,7 @@
         "32c26d9f-48ab-4f6e-bf8e-9e40af5cfb6c"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/monster-mash-group.png"
+        "image": "shopify://shop_images/monster-mash-group.png"
       }
     }
   },
