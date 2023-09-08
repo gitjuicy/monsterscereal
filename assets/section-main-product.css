@@ -253,7 +253,7 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input .select {
-  max-width: 25rem;
+  max-width: calc(13rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
 }
 
 .product-form__submit {
@@ -1000,6 +1000,8 @@ a.product__text {
 .thumbnail-list {
   flex-wrap: wrap;
   grid-gap: 1rem;
+  max-width: 250px;
+  margin: 0 auto;
 }
 
 /* Fix to show some space at the end of our sliders in all browsers to be applied on thumbnails */
