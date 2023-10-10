@@ -2,9 +2,6 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "custom_css": [
-        "* {color: #fff;}"
-      ],
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
