@@ -18,6 +18,20 @@
     },
     "main": {
       "type": "monster",
+      "blocks": {
+        "784ee5be-dafe-4b16-9057-ba61e90131f4": {
+          "type": "button",
+          "settings": {
+            "route": "shopify:\/\/pages\/boo-berry",
+            "text": "SHOP",
+            "color": "#000000",
+            "text_color": "#FFF"
+          }
+        }
+      },
+      "block_order": [
+        "784ee5be-dafe-4b16-9057-ba61e90131f4"
+      ],
       "settings": {
       }
     }
