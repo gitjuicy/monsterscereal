@@ -2,8 +2,34 @@
   margin-top: 0;
 }
 
+.main-page {
+  color: #fff;
+
+  & .rte li {
+    list-style: auto;
+  }
+
+  & p {
+    margin: 1rem 0rem;
+  }
+
+  & h2, & h3 {
+    color: #fff;
+  }
+
+  & a {
+    text-decoration: underline;
+    color: #fff;
+
+    &:hover {
+      color: #a5cd39;
+    }
+  }
+}
+
 .main-page-title {
   margin-bottom: 3rem;
+  color: #fff;
 }
 
 @media screen and (min-width: 750px) {
