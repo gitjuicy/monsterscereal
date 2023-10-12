@@ -112,7 +112,7 @@
             <ul class="flex flex-col gap-2 mt-32 mx-auto" role="list">
               {% for link in block.settings.hamburger-menu.links %}
                 <li class="uppercase font-coop text-white text-center" role="listitem">
-                  {% if link.title != 'Home' %} 
+                  {% if link.title != 'Home' and link.title != 'Shop' %} 
                     <a class="text-3xl md:text-5xl" href="/pages/{{ link.handle }}">
                       {{ link.title }}
                     </a>
