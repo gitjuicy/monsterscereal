@@ -19,7 +19,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "MEET CARMELLA",
-            "button_link_1": "shopify://pages/carmella-creeper"
+            "button_link_1": "shopify:\/\/pages\/carmella-creeper"
           }
         }
       },
@@ -29,7 +29,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/home-hero.png"
+        "image": "shopify:\/\/shop_images\/home-hero.png"
       }
     },
     "home_content": {
@@ -47,7 +47,8 @@
           "type": "text",
           "settings": {
             "text": "Monster Mash is BACK... and this time, it's the remix!",
-            "text_2": "Pick up a box of the new Monster Mash Remix featuring the newest monster in the crew, Carmilla Creeper!"
+            "text_2": "Pick up a box of the new Monster Mash Remix featuring the newest monster in the crew, Carmilla Creeper!",
+            "color": "#1689ca"
           }
         },
         "heading_2": {
@@ -60,10 +61,20 @@
         },
         "601a4da5-447d-49a9-ad9e-0c9aa3a67d63": {
           "type": "heading",
+          "disabled": true,
           "settings": {
-            "heading": "LIMITED EDITION MONSTER MERCH DROPS HERE ON 10/13!",
+            "heading": "LIMITED EDITION MONSTER MERCH DROPS HERE ON 10\/13!",
             "grid_heading": true,
             "text_color": "#ffff00"
+          }
+        },
+        "c70f1cd0-4b70-427a-899e-54f35457b5f2": {
+          "type": "button",
+          "settings": {
+            "route": "\/collections\/all",
+            "text": "SHOP LIMITED EDITION MERCH!",
+            "color": "#ffff00",
+            "text_color": "#000000"
           }
         }
       },
@@ -71,10 +82,11 @@
         "heading_1",
         "text",
         "heading_2",
-        "601a4da5-447d-49a9-ad9e-0c9aa3a67d63"
+        "601a4da5-447d-49a9-ad9e-0c9aa3a67d63",
+        "c70f1cd0-4b70-427a-899e-54f35457b5f2"
       ],
       "settings": {
-        "image": "shopify://shop_images/text-section-bg.jpg"
+        "image": "shopify:\/\/shop_images\/text-section-bg.jpg"
       }
     },
     "home_grid": {
@@ -109,7 +121,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "LEARN MORE",
-            "button_link_1": "shopify://pages/monster-mash-remix"
+            "button_link_1": "shopify:\/\/pages\/monster-mash-remix"
           }
         }
       },
@@ -119,7 +131,7 @@
         "32c26d9f-48ab-4f6e-bf8e-9e40af5cfb6c"
       ],
       "settings": {
-        "image": "shopify://shop_images/monster-mash-group.png"
+        "image": "shopify:\/\/shop_images\/monster-mash-group.png"
       }
     }
   },
