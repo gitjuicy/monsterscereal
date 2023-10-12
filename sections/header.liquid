@@ -70,6 +70,7 @@
                   | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[120px] lg:max-w-[140px] pb-[35px]'
                 }}
               </a>
+            {% else %}
               {% assign logo_image = pages[link.handle].metafields.custom.logo %}
               <a href="/pages/{{ link.handle }}" class="block">
                 {{
@@ -112,7 +113,7 @@
             <ul class="flex flex-col gap-2 mt-32 mx-auto" role="list">
               {% for link in block.settings.hamburger-menu.links %}
                 <li class="uppercase font-coop text-white text-center" role="listitem">
-                  {% if link.title != 'Home' %} 
+                  {% if link.title != 'Home' and link.title != 'Shop' %} 
                     <a class="text-3xl md:text-5xl" href="/pages/{{ link.handle }}">
                       {{ link.title }}
                     </a>
