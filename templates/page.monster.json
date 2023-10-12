@@ -23,7 +23,7 @@
           "type": "button",
           "settings": {
             "route": "\/collections\/all",
-            "text": "SHOP",
+            "text": "SHOP MERCH",
             "color": "#000000",
             "text_color": "#ffffff"
           }

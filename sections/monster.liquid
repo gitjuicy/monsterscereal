@@ -69,7 +69,7 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'button' -%}
-              <a class="font-helvetica inline-block mx-auto text-white font-bold text-center w-[208px] xl:w-[288px] py-[8px] mb-8 rounded-full"
+              <a class="font-helvetica inline-block mx-auto lg:text-[2rem] md:max-w-[400px] text-white font-bold text-center xl:w-[288px] py-[8px] px-[16px] mb-8 rounded-full"
                 style="background-color: {{ block.settings.color }}; color: {{ block.settings.text_color }};"
                 href="{{ block.settings.route }}"
                 >
