@@ -70,6 +70,14 @@
                   | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[120px] lg:max-w-[140px] pb-[35px]'
                 }}
               </a>
+            {% elsif link.handle == '/collections/all' %}
+              <a href="{{ link.handle }}" class="block">
+                {{
+                  logo_image
+                  | image_url: width: 140
+                  | image_tag: class: 'hover:scale-125 max-w-[80px] md:max-w-[120px] lg:max-w-[140px]'
+                }}
+              </a>
             {% else %}
               {% assign logo_image = pages[link.handle].metafields.custom.logo %}
               <a href="/pages/{{ link.handle }}" class="block">
