@@ -22,7 +22,7 @@
         "784ee5be-dafe-4b16-9057-ba61e90131f4": {
           "type": "button",
           "settings": {
-            "route": "shopify:\/\/collections",
+            "route": "\/collections\/all",
             "text": "SHOP",
             "color": "#000000",
             "text_color": "#ffffff"
