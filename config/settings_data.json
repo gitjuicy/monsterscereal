@@ -169,6 +169,13 @@
               "menu": "footer"
             }
           },
+          "3a56cace-ec8c-4826-a396-014c32fd175d": {
+            "type": "link_list",
+            "settings": {
+              "menu_heading": "Shop",
+              "menu": "shop"
+            }
+          },
           "c5f16688-7ab5-4456-9cc6-5815360389ac": {
             "type": "link_list",
             "settings": {
@@ -180,6 +187,7 @@
         "block_order": [
           "69ea7db2-9062-477a-8391-d473152231d1",
           "f05e040a-e65d-4892-9a7c-20ceacb5234a",
+          "3a56cace-ec8c-4826-a396-014c32fd175d",
           "c5f16688-7ab5-4456-9cc6-5815360389ac"
         ],
         "settings": {
