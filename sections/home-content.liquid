@@ -8,23 +8,33 @@
       background-image: url({{ section.settings.image | image_url }});
     }
   {%- endif -%}
+  .home-content a:hover {
+    opacity: 0.8;
+  }
 {% endstyle %}
 
 <div class="home-content {{ sectionStyle }}">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'heading' -%}
-        <h2 class="{% if block.settings.grid_heading == false %}pt-[80px]{% else %}pb-[80px]{% endif %} mx-auto w-4/5 md:w-3/5 font-coop text-[34px] md:text-[60px] leading-none" style="color: {{ block.settings. text_color }}">
+        <h2 class="{% if block.settings.grid_heading == false %}pt-[80px]{% else %}pb-[10px]{% endif %} mx-auto w-4/5 md:w-3/5 font-coop text-[34px] md:text-[60px] leading-none" style="color: {{ block.settings. text_color }}">
           {{ block.settings.heading }}
         </h2>
       {%- when 'text' -%}
-        <p class="pt-[12px] pb-[80px] font-helvetica font-bold text-[24px] leading-[28px] text-white">
+        <p class="pt-[12px] font-helvetica font-bold text-[24px] leading-[28px] text-white">
           {{ block.settings.text }}
           <br aria-hidden="true">
           <span class="inline-block mx-auto w-4/5 md:w-3/5">
             {{ block.settings.text_2 }}
           </span>
         </p>
+      {%- when 'button' -%}
+        <a class="font-helvetica inline-block mx-auto text-white font-bold text-center w-[208px] xl:w-[288px] py-[8px] mt-[16px] mb-[26px] rounded-full"
+          style="background-color: {{ block.settings.color }}; color: {{ block.settings.text_color }};"
+          href="{{ block.settings.route }}"
+          >
+          {{ block.settings.text }}
+        </a>
     {%- endcase -%}
   {%- endfor -%}
 </div>
@@ -81,6 +91,40 @@
           "id": "text_2",
           "default": "Pick up a box of the new Monster Mash Remix featuring the newest monster in the crew, Carmilla Creeper!",
           "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Button Color",
+          "default": "#1689CA"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "url",
+          "id": "route",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Link Text"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Button Color",
+          "default": "#1689CA"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Button Color",
+          "default": "#FFF"
         }
       ]
     }
