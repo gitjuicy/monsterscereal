@@ -71,7 +71,7 @@
         "c70f1cd0-4b70-427a-899e-54f35457b5f2": {
           "type": "button",
           "settings": {
-            "route": "shopify:\/\/pages\/boo-berry",
+            "route": "\/collections\/all",
             "text": "SHOP LIMITED EDITION MERCH!",
             "color": "#ffff00",
             "text_color": "#000000"
