@@ -151,7 +151,7 @@
         ],
         "settings": {
           "announcement_bar": true,
-          "announcement_bar_text": "HAPPY HALLOWEEN! Use the code, TRICKORTREAT, at checkout for 50% off all Merch!  Expires <strong>Midnight 10\/31!<\/strong>",
+          "announcement_bar_text": "Happy Halloween! Use the code, <strong>TRICKORTREAT<\/strong>, at checkout for 50% off all Merch!  Expires at Midnight 10\/31!",
           "announcement_bar_color": "#ff9900"
         }
       },
