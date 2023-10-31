@@ -41,6 +41,12 @@
   <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+{% if section.settings.announcement_bar %}
+  <div class="announcement-bar font-coop center" style="background-color: {{ section.settings.announcement_bar_color }}">
+    {{ section.settings.announcement_bar_text }}
+  </div>
+{% endif %}
+
 <nav
   class="z-10 relative h-[144px] md:h-[176px] bg-inherit 2xl:bg-contain bg-size-100 bg-fixed flex flex-col items-center backdrop-blur-lg w-full leading-none antialiased"
   style="background: url({{ 'header-bg.jpg' | asset_url }}); background-repeat: no-repeat; background-size: cover;"
@@ -176,6 +182,26 @@
 {
   "name": "Header",
   "tag": "header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "announcement_bar",
+      "label": "Enable Announcement Bar?",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "announcement_bar_text",
+      "label": "Announcement Bar Text",
+      "default": "HAPPY HALLOWEEN!  user this code TRICKORTREAT until Midnight 10/31 for 50% off all Merch!"
+    },
+    {
+      "type": "color",
+      "id": "announcement_bar_color",
+      "label": "Announcement Bar Color",
+      "default": "#ff9900"
+    }
+  ],
   "blocks": [
     {
       "type": "link_list",
