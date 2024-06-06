@@ -337,8 +337,10 @@
       data-domain-script="d941ea3a-82a5-4487-8c84-ca63da6183c5"
       defer
     ></script>
-    <script defer>
-      const performanceCookieCategory = 'C0002,';
+    <script type="text/javascript" defer="defer">
+      const analyticsConsent = 'C0002,';
+      const functionalConsent = 'C0003,';
+      const targetingConsent = 'C0004,';
       function waitForOneTrust() {
         hasOneTrustLoaded();
         let attempts = 0;
@@ -349,7 +351,6 @@
           attempts++;
         }, 100);
       }
-
       function hasOneTrustLoaded() {
         if (typeof window.OnetrustActiveGroups === 'string') {
           //check now
@@ -360,20 +361,23 @@
         }
         return false;
       }
-
       function sendConsent(trackingConsent) {
-        window.Shopify.customerPrivacy.setTrackingConsent(trackingConsent, () => {
-          console.log('Happy Days');
-        });
+        window.Shopify.customerPrivacy.setTrackingConsent(
+          trackingConsent,
+          () => {
+            console.log('Consent captured');
+            console.log(window.Shopify.customerPrivacy.currentVisitorConsent());
+          }
+        );
       }
-
       function optanonWrapper() {
-        if (typeof OneTrust !== 'undefined') {
-          OneTrust.OnConsentChanged(function () {
-            location.reload();
-          });
-        }
-        const trackingConsent = !!window.OnetrustActiveGroups.includes(performanceCookieCategory);
+        const trackingConsent = {
+          'analytics': !!window.OnetrustActiveGroups.includes(analyticsConsent),
+          'preferences': !!window.OnetrustActiveGroups.includes(functionalConsent),
+          'marketing': !!window.OnetrustActiveGroups.includes(targetingConsent),
+          "sale_of_data": false
+        };
+        // to use Shopify Customer Privacy API, it must be loaded using loadFeatures
         window.Shopify.loadFeatures(
           [
             {
@@ -381,15 +385,15 @@
               version: '0.1',
             },
           ],
-          (error) => {
+          error => {
             if (error) {
               throw error;
             }
+            // if error is false, the API has loaded and ready to use
             sendConsent(trackingConsent);
-          }
+          },
         );
       }
-
       (function () {
         waitForOneTrust();
       })();
