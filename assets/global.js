@@ -1209,3 +1209,12 @@ for (var i = 0; i < links.length; i++)
     });
   });
 })();
+
+// open external links in new tab
+var allLinks = document.links;
+for (let i = 0, linksLength = links.length ; i < linksLength ; i++) {
+  if (allLinks[i].hostname !== window.location.hostname) {
+    allLinks[i].target = '_blank';
+    allLinks[i].rel = 'noreferrer noopener';
+  }
+}
