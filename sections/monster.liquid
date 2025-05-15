@@ -23,8 +23,8 @@
   endfor
 %}
 
-<!-- Pear PDP script. It has to go in this file -->
-<script type='text/javascript'> (function(e){s=document.createElement("script"),s.type="text/javascript",s.src="https://offers.pearcommerce.com/js/sdk.js?config=" + encodeURIComponent(JSON.stringify(e)),document.head.appendChild(s)})({vendorId: '2289484587179496', widget:'retailer-list'}) </script>
+{% comment %} <!-- Pear PDP script. It has to go in this file -->
+<script type='text/javascript'> (function(e){s=document.createElement("script"),s.type="text/javascript",s.src="https://offers.pearcommerce.com/js/sdk.js?config=" + encodeURIComponent(JSON.stringify(e)),document.head.appendChild(s)})({vendorId: '2289484587179496', widget:'retailer-list'}) </script> {% endcomment %}
 
 <style>
   .product-description p {
@@ -47,12 +47,13 @@
   id="Monster-{{ section.id }}"
   class="text-white monster"
   data-section="{{ section.id }}"
-  style="background: linear-gradient(to bottom, {{ background_color[0] }}, {{ background_color[1] }});"
->
+  style="background: linear-gradient(to bottom, {{ background_color[0] }}, {{ background_color[1] }});">
   <div class="flex flex-row flex-nowrap items-center justify-between gap-5 max-w-1000 my-0 mx-auto px-10">
-    {% render 'arrow-left', previous_cereal: previous_cereal %}
+    {% render 'arrow-left'
+      , previous_cereal: previous_cereal %}
     <h1 class="uppercase text-white text-center font-coop text-5xl md:text-7xl py-16">Meet {{ page.title }}</h1>
-    {% render 'arrow-right', next_cereal: next_cereal %}
+    {% render 'arrow-right'
+      , next_cereal: next_cereal %}
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2">
     <div class="w-4/5 mx-auto sm:w-11/12">
@@ -62,26 +63,28 @@
     </div>
     <div class="product-description text-white w-4/5 sm:w-11/12 mx-auto md:mx-0 mt-4 md:mt-0">
       <h2 class="uppercase text-white font-coop text-4xl">
-        {% if page.title == 'Monster Mash' %}What{% else %}Who{% endif %} is {{ page.title }}?
+        {% if page.title == 'Monster Mash' %}What{% else %}Who{% endif %}
+        is {{ page.title }}?
       </h2>
       {{ page.content }}
       <div class="mt-6">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'button' -%}
-              <a class="font-helvetica inline-block mx-auto lg:text-[2rem] md:max-w-[400px] text-white font-bold text-center xl:w-[288px] py-[8px] px-[16px] mb-8 rounded-full"
+              <a
+                class="font-helvetica inline-block mx-auto lg:text-[2rem] md:max-w-[400px] text-white font-bold text-center xl:w-[288px] py-[8px] px-[16px] mb-8 rounded-full"
                 style="background-color: {{ block.settings.color }}; color: {{ block.settings.text_color }};"
-                href="{{ block.settings.route }}"
-                >
+                href="{{ block.settings.route }}">
                 {{ block.settings.text }}
               </a>
           {%- endcase -%}
         {%- endfor -%}
+      {% comment %}
         <h2 class="uppercase text-white font-coop text-4xl">Find {{ page.title }} near you!</h2>
         <div class="mt-4">
-          <div id="pear-pdp-target">
-          </div>
+        <div id="pear-pdp-target"></div>
         </div>
+      {% endcomment %}
       </div>
       {% if secondary_image %}
         <aside>{{ secondary_image | image_url: width: 650 | image_tag }}</aside>
@@ -94,43 +97,40 @@
 </section>
 
 {% schema %}
-{
-  "name": "Monster",
-  "tag": "section",
-  "class": "section",
-  "blocks": [
-    {
-      "type": "button",
-      "name": "Button",
-      "settings": [
-        {
-          "type": "url",
-          "id": "route",
-          "label": "Link URL"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Link Text"
-        },
-        {
-          "type": "color",
-          "id": "color",
-          "label": "Button Color",
-          "default": "#1689CA"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Button Color",
-          "default": "#FFF"
-        }
-      ]
-    }
-  ],
-  "settings": [
-
-  ]
-}
+  {
+    "name": "Monster",
+    "tag": "section",
+    "class": "section",
+    "blocks": [
+      {
+        "type": "button",
+        "name": "Button",
+        "settings": [
+          {
+            "type": "url",
+            "id": "route",
+            "label": "Link URL"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Link Text"
+          },
+          {
+            "type": "color",
+            "id": "color",
+            "label": "Button Color",
+            "default": "#1689CA"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Button Color",
+            "default": "#FFF"
+          }
+        ]
+      }
+    ],
+    "settings": []
+  }
 {% endschema %}
-
