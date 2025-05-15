@@ -12,4 +12,3 @@ node_modules
 .shopify
 package-lock.json
 yarn.lock
-yarn.lock
